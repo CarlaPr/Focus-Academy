@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FocusAcademy/1.0.0": {
+        "runtime": {
+          "FocusAcademy.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FocusAcademy/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
