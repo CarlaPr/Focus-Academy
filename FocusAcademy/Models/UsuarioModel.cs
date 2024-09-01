@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FocusAcademy.Models
 {
-    public class Usuario
+    public class UsuarioModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
