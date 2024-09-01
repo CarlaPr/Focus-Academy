@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona o DbContext ao contêiner de serviços
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
 
 builder.Services.AddControllersWithViews();
 
