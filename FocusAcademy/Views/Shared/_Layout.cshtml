@@ -7,23 +7,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FocusAcademy.styles.css" asp-append-version="true" />
-
-    <style>
-        .custom-button {
-        background-color: #49052a; /* Cor de fundo personalizada */
-        color: white; /* Cor do texto do botão */
-        border: none; /* Remove a borda padrão */
-        }
-
-        .custom-button:hover {
-        background-color: #6a0f4e; /* Cor de fundo ao passar o mouse */
-        color: white; /* Garante que o texto permaneça branco ao passar o mouse */
-        }
-
-        .custom-button:focus, .custom-button:active {
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Mantém a sombra ao focar e clicar */
-        }
-    </style>
 </head>
 <body>
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -33,23 +16,23 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Avaliações</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Cursos</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">About</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Sobre nós</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
         <button type="button" class="btn custom-button">Login</button>
-        <button type="button" class="btn custom-button">Sign-up</button>
+        <button type="button" class="btn custom-button">Cadastre-se</button>
       </div>
     </header>
     
-    <div class="container">
-        <main role="main" class="pb-3">
+<!-- VERIFICAR AQUI DEPOIS -->
+        <main>
             @RenderBody()
         </main>
-    </div>
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

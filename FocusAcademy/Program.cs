@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using FocusAcademy.Data;
+using FocusAcademy.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,8 @@ builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();
 

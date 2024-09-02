@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OepkVi0XTS1N45n/09N2QxLny/HMP2E9QZ0oaQqbsWU=",
+  "Hash": "cRA0b2QmTHgeJuMOWm/Wqc4FOmqtWLFaGJUoILVzxhA=",
   "Source": "FocusAcademy",
   "BasePath": "_content/FocusAcademy",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\1.png",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\1.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/1.png",
+      "RelativePath": "Images/1.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,15 +109,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\1.png"
+      "OriginalItemSpec": "wwwroot\\Images\\1.svg"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\2.png",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\2.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/2.png",
+      "RelativePath": "Images/2.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\2.png"
+      "OriginalItemSpec": "wwwroot\\Images\\2.svg"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\3.png",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\3.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/3.png",
+      "RelativePath": "Images/3.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,15 +147,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\3.png"
+      "OriginalItemSpec": "wwwroot\\Images\\3.svg"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\4.png",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\4.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/4.png",
+      "RelativePath": "Images/4.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -166,15 +166,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\4.png"
+      "OriginalItemSpec": "wwwroot\\Images\\4.svg"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\5.png",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\5.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/5.png",
+      "RelativePath": "Images/5.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,15 +185,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\5.png"
+      "OriginalItemSpec": "wwwroot\\Images\\5.svg"
     },
     {
-      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\A.svg",
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\Focus_banner_index.svg",
       "SourceId": "FocusAcademy",
       "SourceType": "Discovered",
       "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
       "BasePath": "_content/FocusAcademy",
-      "RelativePath": "Images/A.svg",
+      "RelativePath": "Images/Focus_banner_index.svg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -204,7 +204,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\A.svg"
+      "OriginalItemSpec": "wwwroot\\Images\\Focus_banner_index.svg"
     },
     {
       "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\js\\site.js",

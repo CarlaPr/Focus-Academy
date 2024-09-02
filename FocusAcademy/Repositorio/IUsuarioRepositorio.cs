@@ -8,6 +8,9 @@ namespace FocusAcademy.Repositorio
 {
     public interface IUsuarioRepositorio
     {
-
+        UsuarioModel BuscarPorID(int ID);
+        UsuarioModel Adicionar(UsuarioModel usuario);
+        UsuarioModel Atualizar(UsuarioModel usuario);
+        bool Apagar (int id);
     }
 }

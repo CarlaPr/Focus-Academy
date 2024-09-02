@@ -5,6 +5,18 @@
 }
 <style>
 
+    .professores {
+        background-color: #49052a;
+        margin-top: 0px;
+    }
+
+    .professores h2{
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+    }
+
     .gallery-container {
         display: flex;
         justify-content: space-around;
@@ -20,75 +32,111 @@
     .gallery-item img {
         width: 100%;
         height: auto;
+        border-radius: 50%;
     }
 
     .description {
         margin-top: 5px;
         font-size: 14px;
+        color: white;
     }
 
-    #fotoinicial {
-    width: 100%;          /* Faz o contêiner ocupar 100% da largura da tela */
-    height: 100vh;        /* Ajusta a altura para ocupar 100% da altura da tela */
-    display: flex;        /* Flexbox para centralizar a imagem */
-    justify-content: center;  /* Centraliza a imagem horizontalmente */
-    align-items: center;  /* Centraliza a imagem verticalmente */
-    overflow: hidden;     /* Esconde o excesso caso a imagem seja maior */
-}
+    #fotoinicial{        
+        margin: 0px;
+        padding: 0px;
+    }
 
-#fotoinicial img {
-    width: 100%;          /* Faz a imagem ocupar 100% da largura do contêiner */
-    height: auto;         /* Mantém a proporção original da imagem */
-    object-fit: cover;    /* Cobre todo o contêiner, mantendo a proporção */
-}
+    #fotoinicial img {
+        width: 100%;          /* Faz a imagem ocupar 100% da largura do contêiner */
+        height: auto;         /* Mantém a proporção original da imagem */
+        object-fit: cover;    /* Cobre todo o contêiner, mantendo a proporção */
+    }
+
+    .indicacao{
+        background-color: #49052a;
+        margin: 0px;
+        padding: 20px;
+    }
+
+    .indicacao h1{
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .indicacao p{ 
+        padding: 10px;
+        color: white;
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: white;
+    }
+
+    .cursos{
+        padding: 25px;
+    }
+    
 </style>
 
-<!-- Carrosel de fotos -->
-
 <div id="fotoinicial">
-    <img src="@Url.Content("~/Images/A.svg")">
+    <img src="@Url.Content("~/Images/Focus_banner_index.svg")">
 </div>
 
-
-
 <!-- Indicação -->
-<div>
+<div class="indicacao">
     <h1>Focus Academy, seu futuro começa aqui!</h1>
     <p>Na Focus Academy, nossa missão é transformar o aprendizado em uma experiência 
          e eficaz. Somos uma instituição especializada em cursos preparatórios para o ENEM e 
-         reforço escolar, dedicada a ajudar estudantes a alcançar seus objetivos acadêmicos e realizar seus sonhos.
+         reforço escolar, dedicada a ajudar estudantes a alcançar seus objetivos acadêmicos e
+          realizar seus sonhos.
     </p>
+    <p>A Focus Academy é uma escola preparatória para o ENEM e outros vestibulares, que também oferece
+         reforço escolar, valorizando a qualidade do ensino e o atendimento personalizado. A escola
+          adota uma metodologia que privilegia a proximidade entre professor e aluno, com turmas
+           reduzidas e horários flexíveis, de segunda a sexta-feira e aos sábados. Este ambiente focado
+            e acolhedor garante que cada aluno receba a atenção necessária para alcançar o melhor
+             desempenho, seja nos vestibulares ou nas atividades de reforço escolar.
+    </p>
+    <hr>
 </div>
 
+<div class="professores">
+    <h2>Conheça nossos professores!</h2>
 <!-- Fotos dos professores -->
-<h2>Conheça nossos professores!</h2>
-
-<div class="gallery-container">
-    <div class="gallery-item">
-        <img src="@Url.Content("~/Images/1.png")" alt="Foto 1">
-        <div class="description">Descrição da Foto 1</div>
-    </div>
-    <div class="gallery-item">
-        <img src="@Url.Content("~/Images/2.png")" alt="Foto 2">
-        <div class="description">Descrição da Foto 2</div>
-    </div>
-    <div class="gallery-item">
-        <img src="@Url.Content("~/Images/3.png")" alt="Foto 3">
-        <div class="description">Descrição da Foto 3</div>
-    </div>
-    <div class="gallery-item">
-        <img src="@Url.Content("~/Images/4.png")" alt="Foto 4">
-        <div class="description">Descrição da Foto 4</div>
-    </div>
-    <div class="gallery-item">
-        <img src="@Url.Content("~/Images/5.png")" alt="Foto 5">
-        <div class="description">Descrição da Foto 5</div>
-    </div>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="@Url.Content("~/Images/1.svg")" alt="Profº Jorge Simião">
+                <div class="description">Profº Jorge Simião</div>
+            </div>
+            <div class="gallery-item">
+                <img src="@Url.Content("~/Images/2.svg")" alt="Profº Alberto Vicente">
+                <div class="description">Profº Alberto Vicente</div>
+            </div>
+            <div class="gallery-item">
+                <img src="@Url.Content("~/Images/3.svg")" alt="Profª Juliana Nobrega">
+                <div class="description">Profª Juliana Nobrega</div>
+            </div>
+            <div class="gallery-item">
+                <img src="@Url.Content("~/Images/4.svg")" alt="Profº Thalles Gusman">
+                <div class="description">Profº Thalles Gusman</div>
+            </div>
+            <div class="gallery-item">
+                <img src="@Url.Content("~/Images/5.svg")" alt="Profº Francisco Celestino">
+                <div class="description">Profº Francisco Celestino</div>
+            </div>
+        </div>
 </div>
 
 <!-- Seção de Cursos -->
+<div class="cursos">
     <div class="container mt-5">
-        <h1 class="mb-4">Cursos</h1>
+        <h1 class="mb-4">Confira nossos cursos!</h1>
         <div class="d-flex flex-wrap justify-content-around">
             <!-- curso reforço 1 -->
             <div class="card mb-4" style="width: 18rem;">
@@ -142,3 +190,4 @@
             </div>
         </div>
     </div>
+</div>
