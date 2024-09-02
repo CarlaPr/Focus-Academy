@@ -16,16 +16,17 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Avaliações</a></li>
+        <li><a asp-area="" asp-controller="Usuario" asp-action="ListaUsuario" class="nav-link px-2 link-dark">Avaliações</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Cursos</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">FAQs</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Sobre nós</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
-        <button type="button" class="btn custom-button">Login</button>
-        <button type="button" class="btn custom-button">Cadastre-se</button>
+          <a class="btn custom-button" asp-controller="Usuario" asp-action="Index">Login</a>
+          <a class="btn custom-button" asp-controller="Usuario" asp-action="Cadastrar">Cadastre-se</a>
       </div>
+
     </header>
     
 <!-- VERIFICAR AQUI DEPOIS -->
@@ -36,7 +37,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - FocusAcademy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - FocusAcademy - <a asp-area="" asp-controller="Home" asp-action="Privacy" color="#49052a">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

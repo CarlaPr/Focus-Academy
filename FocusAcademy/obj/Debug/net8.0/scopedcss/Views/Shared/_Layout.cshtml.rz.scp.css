@@ -40,23 +40,10 @@ button.accept-policy[b-zhphfv5tha] {
 }
 
 .footer[b-zhphfv5tha] {
+  margin-top: 30px;
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
 }
-.custom-button[b-zhphfv5tha] {
-  background-color: #49052a; /* Cor de fundo personalizada */
-  color: white; /* Cor do texto do botão */
-  border: none; /* Remove a borda padrão */
-  }
-
-  .custom-button:hover[b-zhphfv5tha] {
-  background-color: #6a0f4e; /* Cor de fundo ao passar o mouse */
-  color: white; /* Garante que o texto permaneça branco ao passar o mouse */
-  }
-
-  .custom-button:focus[b-zhphfv5tha], .custom-button:active[b-zhphfv5tha] {
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Mantém a sombra ao focar e clicar */
-  }

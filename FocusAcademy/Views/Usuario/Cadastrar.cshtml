@@ -1,0 +1,78 @@
+﻿@using FocusAcademy.Enums
+@model UsuarioModel //comando para a view ter contato com a model. Lendo o conteudo dela
+@{
+    ViewData["Title"] = "Cadastro";
+}
+<style>
+    .cadastro {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 100px ;
+    }
+
+    h1 {
+        color: #49052a; 
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #49052a; 
+        text-align: left;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button, #login{
+        background-color: #49052a; 
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #270518; 
+    }
+</style>
+
+  <div class="cadastro">
+    <h1>Cadastro</h1>
+    <form id="cadastroForm" asp-controller="Usuario" asp-action="Cadastrar" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" asp-for="Nome" id="nome" name="nome" required><br>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" asp-for="Cpf" id="cpf" name="cpf" required><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" asp-for="Endereco" id="endereco" name="endereco" required><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" asp-for="Telefone" id="telefone" name="telefone" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" asp-for="Email" id="email" name="email" required><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" asp-for="Senha" id="senha" name="senha" required><br><br>
+
+        <button type="submit">Cadastrar</button>
+        <button><a id="login" asp-controller="Usuario" asp-action="Index"> Realizar Login </a></button>
+    </form>
+</div>

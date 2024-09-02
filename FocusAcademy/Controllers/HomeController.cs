@@ -10,8 +10,6 @@ public class HomeController : Controller
     {
         //pegar dados da model instanciando a homemodel
         HomeModel home = new HomeModel();
-        home.Nome = "Carla"; //posteriormente substitituir o carla para pegar o nome da sessao do login
-        home.Email = "Carla.com";
         return View(home);
     }
 
