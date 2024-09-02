@@ -3,8 +3,142 @@
 @{
     ViewData["Title"] = "Página Inicial";
 }
+<style>
 
-<div class="text-center">
-    <h1 class="display-4">Bem vindo Ao site, @Model.Nome</h1>
-    <p>Learn about.</p>
+    .gallery-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .gallery-item {
+        text-align: center;
+        margin: 10px;
+        width: 150px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .description {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    #fotoinicial {
+    width: 100%;          /* Faz o contêiner ocupar 100% da largura da tela */
+    height: 100vh;        /* Ajusta a altura para ocupar 100% da altura da tela */
+    display: flex;        /* Flexbox para centralizar a imagem */
+    justify-content: center;  /* Centraliza a imagem horizontalmente */
+    align-items: center;  /* Centraliza a imagem verticalmente */
+    overflow: hidden;     /* Esconde o excesso caso a imagem seja maior */
+}
+
+#fotoinicial img {
+    width: 100%;          /* Faz a imagem ocupar 100% da largura do contêiner */
+    height: auto;         /* Mantém a proporção original da imagem */
+    object-fit: cover;    /* Cobre todo o contêiner, mantendo a proporção */
+}
+</style>
+
+<!-- Carrosel de fotos -->
+
+<div id="fotoinicial">
+    <img src="@Url.Content("~/Images/A.svg")">
 </div>
+
+
+
+<!-- Indicação -->
+<div>
+    <h1>Focus Academy, seu futuro começa aqui!</h1>
+    <p>Na Focus Academy, nossa missão é transformar o aprendizado em uma experiência 
+         e eficaz. Somos uma instituição especializada em cursos preparatórios para o ENEM e 
+         reforço escolar, dedicada a ajudar estudantes a alcançar seus objetivos acadêmicos e realizar seus sonhos.
+    </p>
+</div>
+
+<!-- Fotos dos professores -->
+<h2>Conheça nossos professores!</h2>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="@Url.Content("~/Images/1.png")" alt="Foto 1">
+        <div class="description">Descrição da Foto 1</div>
+    </div>
+    <div class="gallery-item">
+        <img src="@Url.Content("~/Images/2.png")" alt="Foto 2">
+        <div class="description">Descrição da Foto 2</div>
+    </div>
+    <div class="gallery-item">
+        <img src="@Url.Content("~/Images/3.png")" alt="Foto 3">
+        <div class="description">Descrição da Foto 3</div>
+    </div>
+    <div class="gallery-item">
+        <img src="@Url.Content("~/Images/4.png")" alt="Foto 4">
+        <div class="description">Descrição da Foto 4</div>
+    </div>
+    <div class="gallery-item">
+        <img src="@Url.Content("~/Images/5.png")" alt="Foto 5">
+        <div class="description">Descrição da Foto 5</div>
+    </div>
+</div>
+
+<!-- Seção de Cursos -->
+    <div class="container mt-5">
+        <h1 class="mb-4">Cursos</h1>
+        <div class="d-flex flex-wrap justify-content-around">
+            <!-- curso reforço 1 -->
+            <div class="card mb-4" style="width: 18rem;">
+                <img class="card-img-top" src="caminho/para/sua/imagem1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Título do Curso 1</h5>
+                    <p class="card-text">Descrição do conteúdo do curso 1.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Aula de Português</li>
+                    <li class="list-group-item">Aula de Matemática</li>
+                    <li class="list-group-item">Aula de Ciências</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Matricule-se</a>
+                </div>
+            </div>
+
+            <!-- curso reforço 2 -->
+            <div class="card mb-4" style="width: 18rem;">
+                <img class="card-img-top" src="caminho/para/sua/imagem2.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Título do Curso 2</h5>
+                    <p class="card-text">Descrição do conteúdo do curso 2.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Aula de História</li>
+                    <li class="list-group-item">Aula de Geografia</li>
+                    <li class="list-group-item">Aula de Inglês</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Matricule-se</a>
+                </div>
+            </div>
+
+            <!-- curso reforço 3 -->
+            <div class="card mb-4" style="width: 18rem;">
+                <img class="card-img-top" src="caminho/para/sua/imagem3.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Título do Curso 3</h5>
+                    <p class="card-text">Descrição do conteúdo do curso 3.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Aula de Física</li>
+                    <li class="list-group-item">Aula de Química</li>
+                    <li class="list-group-item">Aula de Biologia</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Matricule-se</a>
+                </div>
+            </div>
+        </div>
+    </div>

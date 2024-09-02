@@ -7,37 +7,44 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FocusAcademy.styles.css" asp-append-version="true" />
+
+    <style>
+        .custom-button {
+        background-color: #49052a; /* Cor de fundo personalizada */
+        color: white; /* Cor do texto do botão */
+        border: none; /* Remove a borda padrão */
+        }
+
+        .custom-button:hover {
+        background-color: #6a0f4e; /* Cor de fundo ao passar o mouse */
+        color: white; /* Garante que o texto permaneça branco ao passar o mouse */
+        }
+
+        .custom-button:focus, .custom-button:active {
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1); /* Mantém a sombra ao focar e clicar */
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FocusAcademy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a asp-area="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AreaAluno" asp-action="Index">Área do Aluno</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Cadastro">Cadastro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="ListaUsuario">Cadastro</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn custom-button">Login</button>
+        <button type="button" class="btn custom-button">Sign-up</button>
+      </div>
     </header>
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
