@@ -7,6 +7,7 @@ using FocusAcademy.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using FocusAcademy.Models;
 using Microsoft.Extensions.Logging;
+using FocusAcademy.Enums;
 
 namespace FocusAcademy.Controllers
 {
@@ -45,26 +46,14 @@ namespace FocusAcademy.Controllers
         [HttpPost]
         public IActionResult Cadastrar(UsuarioModel usuario)
         {
+            // Define o valor padrão para o campo Perfil se não estiver definido
+            if (usuario.Perfil == 0)
+            {
+                usuario.Perfil = PerfilEnum.Padrao; // Define o valor padrão
+            }
+
             try
             {
-                // Validação manual
-                if (string.IsNullOrEmpty(usuario.Nome))
-                {
-                    ModelState.AddModelError("Nome", "O campo Nome é obrigatório.");
-                }
-
-                if (string.IsNullOrEmpty(usuario.Cpf))
-                {
-                    ModelState.AddModelError("Cpf", "O campo CPF é obrigatório.");
-                }
-
-                if (string.IsNullOrEmpty(usuario.Email) || !usuario.Email.Contains("@"))
-                {
-                    ModelState.AddModelError("Email", "O campo Email deve ser um endereço de email válido.");
-                }
-
-                // Continue com a validação para outros campos
-
                 if (ModelState.IsValid)
                 {
                     _usuarioRepositorio.Cadastrar(usuario);
@@ -83,6 +72,7 @@ namespace FocusAcademy.Controllers
                 return RedirectToAction("Index");
             }
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

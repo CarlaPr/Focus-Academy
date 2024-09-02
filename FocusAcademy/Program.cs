@@ -6,10 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona o DbContext ao contêiner de serviços
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+           .EnableSensitiveDataLogging() // Habilitar log de dados sensíveis para debug
+           .LogTo(Console.WriteLine)); // Log de comandos SQL no console
+
 
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
 var app = builder.Build();

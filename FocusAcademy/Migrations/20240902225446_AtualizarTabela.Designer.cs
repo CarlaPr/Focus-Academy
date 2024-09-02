@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FocusAcademy.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20240901124713_CriandoTabelaUsuarios")]
-    partial class CriandoTabelaUsuarios
+    [Migration("20240902225446_AtualizarTabela")]
+    partial class AtualizarTabela
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

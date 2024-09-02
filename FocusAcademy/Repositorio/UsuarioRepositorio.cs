@@ -28,9 +28,18 @@ namespace FocusAcademy.Repositorio
 
     public UsuarioModel Cadastrar(UsuarioModel usuario)
     {
-        _context.Usuarios.Add(usuario);
-        _context.SaveChanges();
-        return usuario;
+        try
+        {
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+            return usuario;
+        }
+        catch (Exception ex)
+        {
+            // Logar a exceção
+            Console.WriteLine($"Erro ao cadastrar usuário: {ex.Message}");
+            throw;
+        }
     }
 
     public UsuarioModel Atualizar(UsuarioModel usuario)
@@ -46,11 +55,9 @@ namespace FocusAcademy.Repositorio
         usuarioDB.Email = usuario.Email;
         usuarioDB.Senha = usuario.Senha;
         usuarioDB.Perfil = usuario.Perfil;
-        usuarioDB.Login = usuario.Login;
 
         _context.Usuarios.Update(usuarioDB);
         _context.SaveChanges();
-
         return usuarioDB;
     }
 
