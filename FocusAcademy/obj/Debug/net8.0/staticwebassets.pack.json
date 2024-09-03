@@ -17,16 +17,28 @@
       "PackagePath": "staticwebassets\\Images\\3.svg"
     },
     {
-      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\4.svg",
-      "PackagePath": "staticwebassets\\Images\\4.svg"
-    },
-    {
-      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\5.svg",
-      "PackagePath": "staticwebassets\\Images\\5.svg"
-    },
-    {
       "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\Focus_banner_index.svg",
       "PackagePath": "staticwebassets\\Images\\Focus_banner_index.svg"
+    },
+    {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\prof1.svg",
+      "PackagePath": "staticwebassets\\Images\\prof1.svg"
+    },
+    {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\prof2.svg",
+      "PackagePath": "staticwebassets\\Images\\prof2.svg"
+    },
+    {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\prof3.svg",
+      "PackagePath": "staticwebassets\\Images\\prof3.svg"
+    },
+    {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\prof4.svg",
+      "PackagePath": "staticwebassets\\Images\\prof4.svg"
+    },
+    {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\Images\\prof5.svg",
+      "PackagePath": "staticwebassets\\Images\\prof5.svg"
     },
     {
       "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\css\\site.css",

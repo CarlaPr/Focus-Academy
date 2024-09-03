@@ -8,11 +8,18 @@
     .professores {
         background-color: #49052a;
         margin-top: 0px;
+        padding: 40px;
     }
 
     .professores h2{
         font-size: 2.5rem;
         font-weight: bold;
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .professores p{
         text-align: center;
         color: white;
     }
@@ -32,7 +39,7 @@
     .gallery-item img {
         width: 100%;
         height: auto;
-        border-radius: 50%;
+        border-radius: 85%;
     }
 
     .description {
@@ -79,7 +86,15 @@
     }
 
     .cursos{
-        padding: 25px;
+        padding: 10px;
+    }
+
+    .cursos h1{
+        color: #49052a;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
     }
     
 </style>
@@ -111,44 +126,52 @@
 <!-- Fotos dos professores -->
         <div class="gallery-container">
             <div class="gallery-item">
-                <img src="@Url.Content("~/Images/1.svg")" alt="Profº Jorge Simião">
+                <img src="@Url.Content("~/Images/prof1.svg")" alt="Profº Jorge Simião">
                 <div class="description">Profº Jorge Simião</div>
             </div>
             <div class="gallery-item">
-                <img src="@Url.Content("~/Images/2.svg")" alt="Profº Alberto Vicente">
+                <img src="@Url.Content("~/Images/prof2.svg")" alt="Profº Alberto Vicente">
                 <div class="description">Profº Alberto Vicente</div>
             </div>
             <div class="gallery-item">
-                <img src="@Url.Content("~/Images/3.svg")" alt="Profª Juliana Nobrega">
+                <img src="@Url.Content("~/Images/prof3.svg")" alt="Profª Juliana Nobrega">
                 <div class="description">Profª Juliana Nobrega</div>
             </div>
             <div class="gallery-item">
-                <img src="@Url.Content("~/Images/4.svg")" alt="Profº Thalles Gusman">
+                <img src="@Url.Content("~/Images/prof4.svg")" alt="Profº Thalles Gusman">
                 <div class="description">Profº Thalles Gusman</div>
             </div>
             <div class="gallery-item">
-                <img src="@Url.Content("~/Images/5.svg")" alt="Profº Francisco Celestino">
+                <img src="@Url.Content("~/Images/prof5.svg")" alt="Profº Francisco Celestino">
                 <div class="description">Profº Francisco Celestino</div>
             </div>
         </div>
+
+        <p>Temos o orgulho de contar com uma equipe de professores altamente 
+            qualificados e dedicados. Cada um traz uma vasta experiência e paixão pelo ensino, criando 
+            um ambiente de aprendizado estimulante e acolhedor. Comprometidos com o desenvolvimento 
+            integral dos alunos, nossos educadores oferecem um ensino personalizado e atual, sempre em 
+            sintonia com as melhores práticas pedagógicas. Nossos professores são, sem dúvida, a base do 
+            nosso sucesso educacional.</p>
 </div>
 
 <!-- Seção de Cursos -->
 <div class="cursos">
     <div class="container mt-5">
-        <h1 class="mb-4">Confira nossos cursos!</h1>
+        <h1>Confira nossos cursos!</h1>
         <div class="d-flex flex-wrap justify-content-around">
             <!-- curso reforço 1 -->
             <div class="card mb-4" style="width: 18rem;">
-                <img class="card-img-top" src="caminho/para/sua/imagem1.jpg" alt="Card image cap">
+                <img class="card-img-top" src="~/Images/3.svg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Título do Curso 1</h5>
-                    <p class="card-text">Descrição do conteúdo do curso 1.</p>
+                    <h5 class="card-title">Reforco - Infantil</h5>
+                    <p class="card-text">Nosso Curso de Reforço Infantil foi desenvolvido para oferecer apoio adicional nas áreas essenciais do conhecimento, ajudando os pequenos a superar desafios e fortalecer suas habilidades. Com atividades dinâmicas e abordagens personalizadas, nossos programas são projetados para tornar o aprendizado divertido e eficiente, garantindo que cada criança desenvolva confiança e competência em suas matérias escolares.</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Aula de Português</li>
-                    <li class="list-group-item">Aula de Matemática</li>
-                    <li class="list-group-item">Aula de Ciências</li>
+                    <li class="list-group-item">Curso de Ciências Infantil</li>
+                    <li class="list-group-item">Curso de Geografia Infantil</li>
+                    <li class="list-group-item">Curso de História Infantil</li>
+                    <li class="list-group-item">Curso de Português Infantil</li>
                 </ul>
                 <div class="card-body">
                     <a href="#" class="card-link">Matricule-se</a>
@@ -157,15 +180,19 @@
 
             <!-- curso reforço 2 -->
             <div class="card mb-4" style="width: 18rem;">
-                <img class="card-img-top" src="caminho/para/sua/imagem2.jpg" alt="Card image cap">
+                <img class="card-img-top" src="~/Images/2.svg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Título do Curso 2</h5>
-                    <p class="card-text">Descrição do conteúdo do curso 2.</p>
+                    <h5 class="card-title">Reforço - Ensino Médio</h5>
+                    <p class="card-text">O ensino médio é um período crucial para o desenvolvimento acadêmico e a preparação para o futuro. Nosso Curso de Reforço para Ensino Médio oferece uma abordagem personalizada e eficaz para ajudar os estudantes a superar dificuldades e fortalecer seus conhecimentos em disciplinas chave. Com um conteúdo abrangente e técnicas de ensino inovadoras, proporcionamos suporte adicional que vai além do que é abordado em sala de aula. </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Aula de História</li>
-                    <li class="list-group-item">Aula de Geografia</li>
-                    <li class="list-group-item">Aula de Inglês</li>
+                    <li class="list-group-item">Redação</li>
+                    <li class="list-group-item">Geografia</li>
+                    <li class="list-group-item">Literatura</li>
+                    <li class="list-group-item">Química</li>
+                    <li class="list-group-item">Matemática</li>
+                    <li class="list-group-item">História</li>
+                    <li class="list-group-item">Leitura e Interpretação de Textos</li>
                 </ul>
                 <div class="card-body">
                     <a href="#" class="card-link">Matricule-se</a>
@@ -174,18 +201,22 @@
 
             <!-- curso reforço 3 -->
             <div class="card mb-4" style="width: 18rem;">
-                <img class="card-img-top" src="caminho/para/sua/imagem3.jpg" alt="Card image cap">
+                <img class="card-img-top" src="~/Images/1.svg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Título do Curso 3</h5>
-                    <p class="card-text">Descrição do conteúdo do curso 3.</p>
+                    <h5 class="card-title">Preparação Vestibular</h5>
+                    <p class="card-text">Manter-se atualizado e bem preparado é essencial para garantir uma excelente performance nos exames vestibulares e abrir portas para oportunidades acadêmicas e profissionais. Com o nosso Curso Preparatório para Vestibular, você terá a chance de expandir seus conhecimentos, aprimorar suas habilidades e se familiarizar com as últimas tendências e exigências dos principais exames.</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Aula de Física</li>
-                    <li class="list-group-item">Aula de Química</li>
-                    <li class="list-group-item">Aula de Biologia</li>
+                    <li class="list-group-item">Orientação Vocacional e Psicológica</li>
+                    <li class="list-group-item">Geometria</li>
+                    <li class="list-group-item">Literatura Brasileira</li>
+                    <li class="list-group-item">História Geral</li>
+                    <li class="list-group-item">Biologia</li>
+                    <li class="list-group-item">Algebra</li>
+                    <li class="list-group-item">Financeiro</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Matricule-se</a>
+                    <a href="#" class="card-link">MATRICULE-SE</a>
                 </div>
             </div>
         </div>
