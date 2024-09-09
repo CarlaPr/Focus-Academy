@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj": {}
+    "C:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj": {}
   },
   "projects": {
-    "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj": {
+    "C:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj",
         "projectName": "FocusAcademy",
-        "projectPath": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\FocusAcademy.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -62,6 +62,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.8, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
