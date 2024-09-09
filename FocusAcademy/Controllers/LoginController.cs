@@ -1,4 +1,5 @@
 using System;
+using FocusAcademy.Helper;
 using FocusAcademy.Models;
 using FocusAcademy.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -8,15 +9,25 @@ namespace FocusAcademy.Controllers
     public class LoginController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
+        private ISessao _sessao;
 
-        public LoginController(IUsuarioRepositorio usuarioRepositorio)
+        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
+            _sessao = sessao;
         }
 
         public IActionResult Index()
         {
+            //Se o usuario estiver logado ele sera redirecionado para a pagina area do aluno
+            if(_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "AreaAluno");
+
             return View();
+        }
+
+        public IActionResult Sair(){
+            _sessao.RemoverSessaoDoUsuario();
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpPost]
@@ -32,8 +43,15 @@ namespace FocusAcademy.Controllers
                     {
                         if (usuario.SenhaValida(loginModel.Senha))
                         {
-                            return RedirectToAction("Index", "AreaAluno");
+                            _sessao.CriarSessaoDoUsuario(usuario);
+
+                            if (usuario.Perfil == FocusAcademy.Enums.PerfilEnum.Admin){
+                                return RedirectToAction("IndexAdmin", "AreaAluno");
+                            }else{
+                                return RedirectToAction("Index", "AreaAluno");
+                            }                
                         }
+
                         TempData["MensagemErro"] = $"Houve um erro no login. Senha inválida";
                     }
                     else

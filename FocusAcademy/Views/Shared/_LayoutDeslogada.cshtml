@@ -9,33 +9,11 @@
     <link rel="stylesheet" href="~/FocusAcademy.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a asp-area="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-      </a>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Página Inicial</a></li>
-        <li><a asp-area="" asp-controller="AreaAluno" asp-action="Index" class="nav-link px-2 link-dark">Área do Aluno</a></li>
-      </ul>
-
-      <div class="col-md-3 text-end">
-          <a class="btn custom-button" asp-controller="Login" asp-action="Index">Sair</a>
-      </div>
-
-    </header>
-    
-<!-- VERIFICAR AQUI DEPOIS -->
         <main>
+            @await Component.InvokeAsync("Menu");
             @RenderBody()
         </main>
 
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - FocusAcademy - <a asp-area="" asp-controller="Home" asp-action="Privacy" color="#49052a">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

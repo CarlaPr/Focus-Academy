@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using FocusAcademy.Data;
 using FocusAcademy.Repositorio;
+using FocusAcademy.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,13 @@ builder.Services.AddDbContext<BancoContext>(options =>
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+builder.Services.AddScoped<ISessao, Sessao>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+builder.Services.AddSession(o => {
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 var app = builder.Build();
 
 // Configura o pipeline de solicitação HTTP
@@ -28,6 +35,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

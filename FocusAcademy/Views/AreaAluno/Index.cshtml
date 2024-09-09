@@ -1,11 +1,92 @@
-﻿@model LoginModel //comando para a view ter contato com a model. Lendo o conteudo dela
+﻿@model LoginModel
 
 @{
     Layout = "_LayoutDeslogada";
-    ViewData["Title"] = "Area do Aluno";
+    ViewData["Title"] = "Área do Aluno";
+}
+<style>
+    /* Estilização geral da página */
+#page-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Area do Aluno</h1>
-</div>
+/* Estilo para cada box de navegação */
+.box-item {
+    width: 45%;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
 
+/* Efeito hover para os boxes */
+.box-item:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+/* Estilo para os links */
+.link-navegacao {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo para os títulos dos boxes */
+.titulo-box {
+    margin: 0;
+}
+
+/* Box específico de grade */
+#box-grade {
+    background-color: #fdfd96;
+}
+
+/* Box específico de notas */
+#box-notas {
+    background-color: #ffb6b9;
+}
+
+/* Box específico de materiais */
+#box-materiais {
+    background-color: #a0e7e5;
+}
+
+/* Box específico de horário */
+#box-horario {
+    background-color: #caffbf;
+}
+
+</style>
+
+<div id="page-container" class="container-area-aluno">
+    <div id="box-grade" class="box-item">
+        <a href="#grade" class="link-navegacao">
+            <h2 class="titulo-box">Grade</h2>
+        </a>
+    </div>
+    <div id="box-notas" class="box-item">
+        <a href="#notas" class="link-navegacao">
+            <h2 class="titulo-box">Notas</h2>
+        </a>
+    </div>
+    <div id="box-materiais" class="box-item">
+        <a href="#materiais" class="link-navegacao">
+            <h2 class="titulo-box">Materiais de Estudo</h2>
+        </a>
+    </div>
+    <div id="box-horario" class="box-item">
+        <a href="#horario" class="link-navegacao">
+            <h2 class="titulo-box">Horário das Aulas</h2>
+        </a>
+    </div>
+</div>
