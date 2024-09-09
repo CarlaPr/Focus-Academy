@@ -39,5 +39,8 @@ namespace FocusAcademy.Models
 
         [Required]
         public PerfilEnum Perfil { get; set; }
+        public bool SenhaValida(string senha){
+            return Senha == senha;
+        }
     }
 }

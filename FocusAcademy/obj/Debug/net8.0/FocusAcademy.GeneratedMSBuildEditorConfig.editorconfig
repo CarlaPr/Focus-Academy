@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\User\Desktop\FocusAcademy\FocusAcademy
 build_property._RazorSourceGeneratorDebug = 
 
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/grade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXGdyYWRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,8 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Shared/_LayoutDeslogada.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREZXNsb2dhZGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -40,10 +52,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Usuario/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDYWRhc3RyYXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Usuario/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Usuario/ListaUsuario.cshtml]

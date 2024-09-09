@@ -71,6 +71,11 @@ namespace FocusAcademy.Repositorio
 
         return true;
     }
-}
+
+        public UsuarioModel BuscarPorEmail(string email)
+        {
+            return _context.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToLower());
+        }
+    }
 
 }

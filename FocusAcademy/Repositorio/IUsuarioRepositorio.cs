@@ -13,5 +13,6 @@ namespace FocusAcademy.Repositorio
         List<UsuarioModel> BuscarTodos();
         UsuarioModel Atualizar(UsuarioModel usuario);
         bool Apagar (int id);
+        UsuarioModel BuscarPorEmail(string email);
     }
 }
