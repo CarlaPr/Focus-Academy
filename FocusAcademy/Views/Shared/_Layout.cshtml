@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FocusAcademy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FocusAcademy.styles.css" asp-append-version="true" />
@@ -16,10 +17,8 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a asp-area="" asp-controller="Usuario" asp-action="ListaUsuario" class="nav-link px-2 link-dark">Avaliações</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Cursos</a></li>
+        <li><a  onclick="cursos()" class="nav-link px-2 link-dark">Cursos</a></li>
         <li><a asp-area="" asp-controller="AreaAluno" asp-action="Index" class="nav-link px-2 link-dark">Área do Aluno</a></li>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-dark">Sobre nós</a></li>
       </ul>
 
       <div class="col-md-3 text-end">

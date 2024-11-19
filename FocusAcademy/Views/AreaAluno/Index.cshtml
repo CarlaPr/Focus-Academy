@@ -1,92 +1,155 @@
-﻿@model LoginModel
+﻿@model FocusAcademy.Models.UsuarioModel
 
 @{
     Layout = "_LayoutDeslogada";
     ViewData["Title"] = "Área do Aluno";
 }
+
 <style>
-    /* Estilização geral da página */
-#page-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f6f9;
+    }
 
-/* Estilo para cada box de navegação */
-.box-item {
-    width: 45%;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 0;
-    transition: all 0.3s ease;
-}
+    .area-aluno-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.3s ease;
+        border: 1px solid #ddd;
+    }
 
-/* Efeito hover para os boxes */
-.box-item:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.05);
-}
+    .area-aluno-container:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
 
-/* Estilo para os links */
-.link-navegacao {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
+    .welcome-message {
+        text-align: center;
+        font-size: 2.5em;
+        color: #49052a;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
 
-/* Estilo para os títulos dos boxes */
-.titulo-box {
-    margin: 0;
-}
+    .subtitle {
+        font-size: 1.5em;
+        color: #34495e;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-/* Box específico de grade */
-#box-grade {
-    background-color: #fdfd96;
-}
+    .course-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
 
-/* Box específico de notas */
-#box-notas {
-    background-color: #ffb6b9;
-}
+    .course-list li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        font-size: 1.2em;
+        background-color: #ecf0f1;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #bdc3c7;
+        transition: background-color 0.3s, transform 0.2s;
+        color: #34495e;
+    }
 
-/* Box específico de materiais */
-#box-materiais {
-    background-color: #a0e7e5;
-}
+    .course-list li:hover {
+        background-color: #bdc3c7;
+        transform: translateY(-2px);
+    }
 
-/* Box específico de horário */
-#box-horario {
-    background-color: #caffbf;
-}
+    .course-list li a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: bold;
+        padding: 10px;
+    }
 
+    .course-list li a:hover {
+        text-decoration: underline;
+        color: #3498db;
+    }
+
+    .course-list li .course-name {
+        flex-grow: 1;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .course-list li .action-links {
+        display: flex;
+        gap: 10px;
+    }
+
+    .course-list li .action-links a {
+        color: #3498db;
+        font-size: 1em;
+        text-decoration: none;
+    }
+
+    .course-list li .action-links a:hover {
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 1.2em;
+        color: #34495e;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    a {
+        color: #3498db;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+    }
 </style>
+<div class="area-aluno-container">
+    <h1 class="welcome-message">Bem-vindo!</h1>
 
-<div id="page-container" class="container-area-aluno">
-    <div id="box-grade" class="box-item">
-        <a href="#grade" class="link-navegacao">
-            <h2 class="titulo-box">Grade</h2>
-        </a>
-    </div>
-    <div id="box-notas" class="box-item">
-        <a href="#notas" class="link-navegacao">
-            <h2 class="titulo-box">Notas</h2>
-        </a>
-    </div>
-    <div id="box-materiais" class="box-item">
-        <a href="#materiais" class="link-navegacao">
-            <h2 class="titulo-box">Materiais de Estudo</h2>
-        </a>
-    </div>
-    <div id="box-horario" class="box-item">
-        <a href="#horario" class="link-navegacao">
-            <h2 class="titulo-box">Horário das Aulas</h2>
-        </a>
-    </div>
+    @if (Model?.Matriculas != null && Model.Matriculas.Any())
+    {
+        <ul class="course-list">
+            @foreach (var matricula in Model.Matriculas)
+            {
+                <li>
+                    <span class="course-name">Cursos Matriculado: @(matricula?.Curso?.Nome ?? "Curso não disponível")</span>
+                </li>
+                <li>
+                    <div class="action-links">
+                        <a asp-controller="AreaAluno" asp-action="Grade">Visualizar Grade Horária</a>
+                        <a asp-controller="AreaAluno" asp-action="Visualizar">Visualizar Dados Cadastrais</a>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Você ainda não está matriculado em nenhum curso.</p>
+        <ul>
+            <li>
+                <a asp-controller="AreaAluno" asp-action="Matricular">Veja os Cursos Disponíveis e se Matricule já!</a>
+            </li>
+        </ul>
+    }
 </div>

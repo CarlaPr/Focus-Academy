@@ -1,0 +1,133 @@
+﻿@model FocusAcademy.Models.UsuarioModel
+
+@{
+    Layout = "_LayoutDeslogada";
+    ViewData["Title"] = "Visualizar Cadastro";
+}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f6f9;
+    }
+
+    .area-aluno-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.3s ease;
+        border: 1px solid #ddd;
+    }
+
+    .area-aluno-container:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .subtitle {
+        font-size: 1.5em;
+        color: #34495e;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .user-details {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .user-details li {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        font-size: 1.2em;
+        background-color: #ecf0f1;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #bdc3c7;
+        color: #34495e;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .user-details li:hover {
+        background-color: #bdc3c7;
+        transform: translateY(-2px);
+    }
+
+    .user-details li span {
+        font-weight: bold;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn-primary {
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #2980b9;
+    }
+
+    .btn-danger {
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 8px;
+        background-color: #dc3545;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+</style>
+
+<div class="area-aluno-container">
+    <h2 class="subtitle">Dados Cadastrais</h2>
+
+    <ul class="user-details">
+        <li>
+            <span>Nome:</span>
+            <span>@Model.Nome</span>
+        </li>
+        <li>
+            <span>Data de Nascimento:</span>
+            <span>@(Model.DataNascimento.HasValue ? Model.DataNascimento.Value.ToShortDateString() : "Não informado")</span>
+        </li>
+        <li>
+            <span>CPF:</span>
+            <span>@(string.IsNullOrEmpty(Model.Cpf) ? "Não informado" : Model.Cpf)</span>
+        </li>
+        <li>
+            <span>Endereço:</span>
+            <span>@(string.IsNullOrEmpty(Model.Endereco) ? "Não informado" : Model.Endereco)</span>
+        </li>
+        <li>
+            <span>Telefone:</span>
+            <span>@(string.IsNullOrEmpty(Model.Telefone) ? "Não informado" : Model.Telefone)</span>
+        </li>
+        <li>
+            <span>Email:</span>
+            <span>@Model.Email</span>
+        </li>
+    </ul>
+
+    <div class="text-center">
+        <a asp-controller="AreaAluno" asp-action="Editar" class="btn-primary">Editar Cadastro</a>
+    </div>
+</div>

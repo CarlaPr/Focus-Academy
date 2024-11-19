@@ -1,48 +1,236 @@
-﻿@model HomeModel //comando para a view ter contato com a model. Lendo o conteudo dela
+﻿@model UsuarioModel
 
 @{
-    ViewData["Title"] = "AreaAluno";
+    Layout = "_LayoutDeslogada";
+    ViewData["Title"] = "Área do Aluno - Grade";
+    var nomeCurso = Model?.Matriculas?.FirstOrDefault()?.Curso?.Nome ?? "Curso não disponível";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Area do Aluno</h1>
+    <h2>Curso: @nomeCurso<span id="cursoMatriculado" style="display: none;">@nomeCurso</span></h2>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"> Horarios </th>
-      <th scope="col">Segunda-Feira</th>
-      <th scope="col">Terça-Feira</th>
-      <th scope="col">Quarta-Feira</th>
-      <th scope="col">Quarta-Feira</th>
-      <th scope="col">Quarta-Feira</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"> 7 as 11</th>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-    </tr>
-    <tr>
-      <th scope="row">11 as 15</th>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-    </tr>
-    <tr>
-      <th scope="row">15 as 19</th>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-      <td>aula</td>
-    </tr>
-  </tbody>
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#tabelaEnsinoMedio {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    font-size: 14px;
+    color: #333;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.thead-dark th {
+    background-color: #49052a;
+    color: white;
+    text-transform: uppercase;
+    border-top-left-radius: 10px;  /* Bordas arredondadas */
+    border-top-right-radius: 10px; /* Bordas arredondadas */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f9ff;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.grade-horaria th {
+    background-color: #49052a;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.grade-horaria td {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.grade-horaria td:hover {
+    background-color: #e1f5fe;
+    transform: scale(1.02);
+}
+
+.recreio {
+    background-color: #ffeb3b;
+    font-weight: bold;
+    color: #333;
+}
+
+.recreio:hover {
+    background-color: #ffd600;
+    transition: background-color 0.3s;
+}
+
+
+</style>
+<!-- possui javascript que identifica qual curso está matriculado e exibe a grade correspondente -->
+
+<!-- Grade Horária Ensino Médio -->
+<table id="tabelaEnsinoMedio" class="table table-bordered table-striped grade-horaria" style="display: none;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Horários</th>
+            <th>Segunda-Feira</th>
+            <th>Terça-Feira</th>
+            <th>Quarta-Feira</th>
+            <th>Quinta-Feira</th>
+            <th>Sexta-Feira</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>8h às 9h</th>
+            <td>Matemática Avançada</td>
+            <td>Português para ENEM</td>
+            <td>Química Básica</td>
+            <td>História do Brasil</td>
+            <td>Redação e Estruturas Textuais</td>
+        </tr>
+        <tr>
+            <th>9h às 10h</th>
+            <td>Física para Vestibular</td>
+            <td>Geografia Geral</td>
+            <td>Literatura Brasileira</td>
+            <td>Matemática Financeira</td>
+            <td>Inglês para Interpretação</td>
+        </tr>
+        <tr>
+            <th>10h às 11h</th>
+            <td>Reforço em Matemática</td>
+            <td>Arte e Cultura</td>
+            <td>Física Moderna</td>
+            <td>Química Experimental</td>
+            <td>História da Arte</td>
+        </tr>
+        <tr>
+            <th>11h às 12h</th>
+            <td>Exercícios Práticos</td>
+            <td>Aula de Revisão</td>
+            <td>Biologia Geral</td>
+            <td>Português: Análise e Interpretação</td>
+            <td>Matemática: Resolução de Problemas</td>
+        </tr>
+        <tr>
+            <th>12h às 13h</th>
+            <td colspan="5" class="recreio">Recreio</td>
+        </tr>
+        <tr>
+            <th>13h às 14h</th>
+            <td>Simulado de Matemática</td>
+            <td>Leitura Crítica</td>
+            <td>Redação: Prática</td>
+            <td>Revisão de Física</td>
+            <td>Discussão de Temas de Atualidade</td>
+        </tr>
+        <tr>
+            <th>14h às 15h</th>
+            <td>Atividades Interativas</td>
+            <td>Laboratório de Química</td>
+            <td>Jogos de História</td>
+            <td>Produção Textual</td>
+            <td>Estratégias de Estudo</td>
+        </tr>
+    </tbody>
 </table>
+
+
+<table id="tabelaVestibular" class="table table-bordered table-striped grade-horaria" style="display: none;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Horários</th>
+            <th>Segunda-Feira</th>
+            <th>Terça-Feira</th>
+            <th>Quarta-Feira</th>
+            <th>Quinta-Feira</th>
+            <th>Sexta-Feira</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>7h às 11h</th>
+            <td>Revisão de Matemática</td>
+            <td>Revisão de Química</td>
+            <td>Revisão de Biologia</td>
+            <td>Revisão de Física</td>
+            <td>Revisão de Redação</td>
+        </tr>
+        <tr>
+            <th>11h às 15h</th>
+            <td>Simulado ENEM</td>
+            <td>Simulado Humanas</td>
+            <td>Simulado Natureza</td>
+            <td>Simulado Linguagens</td>
+            <td>Simulado Matemática</td>
+        </tr>
+    </tbody>
+</table>
+
+<table id="tabelaEnsinoInfantil" class="table table-bordered table-striped grade-horaria" style="display: none;">
+    <thead class="thead-dark">
+        <tr>
+            <th>Horários</th>
+            <th>Segunda-Feira</th>
+            <th>Terça-Feira</th>
+            <th>Quarta-Feira</th>
+            <th>Quinta-Feira</th>
+            <th>Sexta-Feira</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>7h às 11h</th>
+            <td>Leitura</td>
+            <td>Desenho</td>
+            <td>Cores</td>
+            <td>Brincadeiras</td>
+            <td>Histórias</td>
+        </tr>
+        <tr>
+            <th>11h às 15h</th>
+            <td>Jogos</td>
+            <td>Pedagógico</td>
+            <td>Soninho</td>
+            <td>Atividades em Grupo</td>
+            <td>Teatro Infantil</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var cursoMatriculado = document.getElementById("cursoMatriculado").innerText.trim();
+
+        function mostrarTabelaCurso(curso) {
+            document.querySelectorAll('.grade-horaria').forEach(function(tabela) {
+                tabela.style.display = 'none';
+            });
+
+            if (curso.includes("Reforço - Ensino Médio")) {
+                document.getElementById('tabelaEnsinoMedio').style.display = 'table';
+            } else if (curso.includes("Preparação Vestibular")) {
+                document.getElementById('tabelaVestibular').style.display = 'table';
+            } else if (curso.includes("Reforço - Infantil")) {
+                document.getElementById('tabelaEnsinoInfantil').style.display = 'table';
+            } else {
+                console.log("Curso não reconhecido.");
+            }
+        }
+
+        mostrarTabelaCurso(cursoMatriculado);
+    });
+</script>

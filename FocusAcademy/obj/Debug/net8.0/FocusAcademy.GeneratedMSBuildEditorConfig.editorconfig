@@ -18,16 +18,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\User\Desktop\FocusAcademy\FocusAcademy
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/grade.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXGdyYWRlLmNzaHRtbA==
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/CancelarMatricula.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXENhbmNlbGFyTWF0cmljdWxhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Grade.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXEdyYWRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/IndexAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXEluZGV4QWRtaW4uY3NodG1s
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Matricular.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXE1hdHJpY3VsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Visualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXFZpc3VhbGl6YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Home/Index.cshtml]
@@ -60,10 +72,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Usuario/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDYWRhc3RyYXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/Usuario/ListaUsuario.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMaXN0YVVzdWFyaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/_ViewImports.cshtml]

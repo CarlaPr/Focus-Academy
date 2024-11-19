@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FocusAcademy.Models.CursoModel>
+
+@{
+    ViewData["Title"] = "Matricular-se";
+    Layout = "_LayoutDeslogada";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Selecione um curso para se matricular</h2>
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Erro"]
+        </div>
+    }
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Sucesso"]
+        </div>
+    }
+
+    <div class="list-group">
+        @foreach (var curso in Model)
+        {
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span>@curso.Nome</span>
+                <form asp-action="Matricular" method="post" class="d-inline-block">
+                    <input type="hidden" name="cursoId" value="@curso.Id" />
+                    <button type="submit" class="btn btn-primary btn-sm">Matricular</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+

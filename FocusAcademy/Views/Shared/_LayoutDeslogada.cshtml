@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model dynamic
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,8 +11,29 @@
     <link rel="stylesheet" href="~/FocusAcademy.styles.css" asp-append-version="true" />
 </head>
 <body>
+
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"></a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-link px-2 link-secondary">Olá, @ViewData["UsuarioNome"]</li>
+            <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Página Inicial</a></li>
+            <li><a asp-area="" asp-controller="AreaAluno" asp-action="Index" class="nav-link px-2 link-dark">Área do Aluno</a></li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+            <a class="btn custom-button" asp-controller="Login" asp-action="Sair">Sair</a>
+        </div>
+    </header>
+
+    @if (Model == null)
+    {
+        <script>
+            window.location.href = '@Url.Action("Index", "Login")';
+        </script>
+    }
         <main>
-            @await Component.InvokeAsync("Menu");
             @RenderBody()
         </main>
 

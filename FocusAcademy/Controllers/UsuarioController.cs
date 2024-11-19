@@ -1,41 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using FocusAcademy.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using FocusAcademy.Models;
-using Microsoft.Extensions.Logging;
+using FocusAcademy.Data;
 using FocusAcademy.Enums;
 
 namespace FocusAcademy.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly IUsuarioRepositorio _usuarioRepositorio;
-        private readonly ILogger<UsuarioController> _logger;
+        private readonly UsuarioRepositorio _usuarioRepositorio;
 
-        public UsuarioController(IUsuarioRepositorio usuarioRepositorio, ILogger<UsuarioController> logger)
+        public UsuarioController(UsuarioRepositorio usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
-            _logger = logger;
-        }
-
-        public IActionResult Index() //login
-        {
-            return View();
-        }
-
-        public IActionResult Home() //login
-        {
-            return RedirectToAction("Index");
-        }
-
-        public IActionResult ListaUsuario()
-        {
-            List<UsuarioModel> usuarios = _usuarioRepositorio.BuscarTodos();
-            return View(usuarios);
         }
 
         public IActionResult Cadastrar()
@@ -43,42 +20,31 @@ namespace FocusAcademy.Controllers
             return View();
         }
 
+        // Processa o cadastro
         [HttpPost]
-        public IActionResult Cadastrar(UsuarioModel usuario)
+        public IActionResult Cadastrar(UsuarioModel model)
         {
-            // Define o valor padrão para o campo Perfil se não estiver definido
-            if (usuario.Perfil == 0)
+            if (!ModelState.IsValid)
             {
-                usuario.Perfil = PerfilEnum.Padrao; // Define o valor padrão
+                return View("Cadastro");
             }
 
-            try
+            // Verifica se o CPF ou o email já estão cadastrados
+            var usuarioExistentePorEmail = _usuarioRepositorio.ObterUsuarioPorEmail(model.Email);
+            var usuarioExistentePorCpf = _usuarioRepositorio.ObterUsuarioPorCpf(model.Cpf);
+
+            if (usuarioExistentePorEmail != null || usuarioExistentePorCpf != null)
             {
-                if (ModelState.IsValid)
-                {
-                    _usuarioRepositorio.Cadastrar(usuario);
-                    TempData["MensagemSucesso"] = "Cadastro realizado com sucesso!";
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    // Se o modelo não é válido, retorna a mesma view com os erros
-                    return View(usuario);
-                }
+                TempData["MensagemErro"] = "O email ou CPF já estão cadastrados. Tente novamente com outros dados.";
+                return View("Cadastro");
             }
-            catch (Exception erro)
-            {
-                TempData["MensagemErro"] = $"Houve um erro: {erro.Message}";
-                return RedirectToAction("Index");
-            }
-        }
 
+            // Adiciona o novo usuário ao banco de dados
+            _usuarioRepositorio.AdicionarUsuario(model);
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
+            TempData["MensagemSucesso"] = "Cadastro realizado com sucesso. Você já pode fazer login!";
+            return RedirectToAction("Index", "Login");
         }
     }
 }
+

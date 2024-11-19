@@ -1,72 +1,63 @@
 using System;
-using FocusAcademy.Helper;
 using FocusAcademy.Models;
-using FocusAcademy.Repositorio;
+using FocusAcademy.Data;
+using FocusAcademy.Enums;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace FocusAcademy.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly IUsuarioRepositorio _usuarioRepositorio;
-        private ISessao _sessao;
+        private readonly UsuarioRepositorio _usuarioRepositorio;
 
-        public LoginController(IUsuarioRepositorio usuarioRepositorio, ISessao sessao)
+        public LoginController(UsuarioRepositorio usuarioRepositorio)
         {
             _usuarioRepositorio = usuarioRepositorio;
-            _sessao = sessao;
         }
 
+        // Exibe a página de login
         public IActionResult Index()
         {
-            //Se o usuario estiver logado ele sera redirecionado para a pagina area do aluno
-            if(_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "AreaAluno");
-
             return View();
         }
 
-        public IActionResult Sair(){
-            _sessao.RemoverSessaoDoUsuario();
-            return RedirectToAction("Index", "Login");
-        }
-
+        // Processa o login
         [HttpPost]
-        public IActionResult Entrar(LoginModel loginModel)
+        public IActionResult Entrar(LoginModel model)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    UsuarioModel usuario = _usuarioRepositorio.BuscarPorEmail(loginModel.Email);
-
-                    if (usuario != null)
-                    {
-                        if (usuario.SenhaValida(loginModel.Senha))
-                        {
-                            _sessao.CriarSessaoDoUsuario(usuario);
-
-                            if (usuario.Perfil == FocusAcademy.Enums.PerfilEnum.Admin){
-                                return RedirectToAction("IndexAdmin", "AreaAluno");
-                            }else{
-                                return RedirectToAction("Index", "AreaAluno");
-                            }                
-                        }
-
-                        TempData["MensagemErro"] = $"Houve um erro no login. Senha inválida";
-                    }
-                    else
-                    {
-                        TempData["MensagemErro"] = $"Houve um erro no login. Usuário e/ou senha inválido(s)";
-                    }
-                }
-
                 return View("Index");
             }
-            catch (Exception erro)
+
+            // Valida o usuário no banco de dados
+            UsuarioModel usuario = _usuarioRepositorio.ValidarLogin(model.Email, model.Senha);
+
+            if (usuario != null)
             {
-                TempData["MensagemErro"] = $"Houve um erro no login: {erro.Message}";
+                // Armazena o ID do usuário na sessão
+                HttpContext.Session.SetInt32("UserId", usuario.Id);
+                HttpContext.Session.SetString("UserName", usuario.Nome);
+
+                // Redireciona para a área do aluno
+                return RedirectToAction("Index", "AreaAluno");
+
+            }
+            else
+            {
+                TempData["MensagemErro"] = "Email ou senha inválidos. Tente novamente.";
                 return RedirectToAction("Index");
             }
         }
+
+        // Realiza o logout
+        public IActionResult Sair()
+        {
+            // Limpa os dados da sessão
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
+
     }
 }
