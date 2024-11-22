@@ -1,8 +1,6 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using FocusAcademy.Models;
 using FocusAcademy.Data;
-using FocusAcademy.Enums;
 
 namespace FocusAcademy.Controllers
 {
@@ -17,34 +15,30 @@ namespace FocusAcademy.Controllers
 
         public IActionResult Cadastrar()
         {
+            TempData.Remove("MensagemSucesso");
             return View();
         }
 
-        // Processa o cadastro
         [HttpPost]
         public IActionResult Cadastrar(UsuarioModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("Cadastro");
+                return View();
             }
+            
+            var usuarioExistente = _usuarioRepositorio.ObterUsuarioPorEmail(model.Email) ?? 
+                                _usuarioRepositorio.ObterUsuarioPorCpf(model.Cpf);
 
-            // Verifica se o CPF ou o email já estão cadastrados
-            var usuarioExistentePorEmail = _usuarioRepositorio.ObterUsuarioPorEmail(model.Email);
-            var usuarioExistentePorCpf = _usuarioRepositorio.ObterUsuarioPorCpf(model.Cpf);
-
-            if (usuarioExistentePorEmail != null || usuarioExistentePorCpf != null)
+            if (usuarioExistente != null)
             {
-                TempData["MensagemErro"] = "O email ou CPF já estão cadastrados. Tente novamente com outros dados.";
-                return View("Cadastro");
+                TempData["MensagemErro"] = "O email ou CPF já estão cadastrados.";
+                return View();
             }
-
-            // Adiciona o novo usuário ao banco de dados
+            
             _usuarioRepositorio.AdicionarUsuario(model);
-
-            TempData["MensagemSucesso"] = "Cadastro realizado com sucesso. Você já pode fazer login!";
+            TempData["MensagemSucesso"] = "Cadastro realizado com sucesso!";
             return RedirectToAction("Index", "Login");
         }
     }
 }
-

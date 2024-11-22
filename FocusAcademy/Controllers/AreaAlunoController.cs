@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using FocusAcademy.Models;
 using FocusAcademy.Data;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Linq;
 
 namespace FocusAcademy.Controllers
 {
@@ -16,13 +13,12 @@ namespace FocusAcademy.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-        // Método auxiliar para verificar se o usuário está logado
         private IActionResult VerificarLogin()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
             {
-                TempData["Erro"] = "Você precisa estar logado para acessar esta página.";
+                TempData["MensagemErro"] = "Você precisa estar logado para acessar a Área do Aluno";
                 return RedirectToAction("Index", "Login");
             }
             return null;
@@ -40,7 +36,7 @@ namespace FocusAcademy.Controllers
 
                 if (usuario == null)
                 {
-                    TempData["Erro"] = "Usuário não encontrado.";
+                    TempData["MensagemErro"] = "Usuário não encontrado.";
                     return RedirectToAction("Index", "Login");
                 }
 
@@ -49,7 +45,7 @@ namespace FocusAcademy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Ocorreu um erro ao carregar a área do aluno. Tente novamente mais tarde.";
+                TempData["MensagemErro"] = "Ocorreu um erro ao carregar a área do aluno. Tente novamente mais tarde.";
                 Console.WriteLine(ex.Message);
                 return RedirectToAction("Index", "Login");
             }
@@ -67,7 +63,7 @@ namespace FocusAcademy.Controllers
 
                 if (aluno == null || aluno.Matriculas == null || !aluno.Matriculas.Any())
                 {
-                    TempData["Erro"] = "Você não está matriculado em nenhum curso.";
+                    TempData["ErroMatricular"] = "Você não está matriculado em nenhum curso.";
                     return RedirectToAction("Index");
                 }
 
@@ -109,7 +105,6 @@ namespace FocusAcademy.Controllers
             }
         }
 
-        
         public IActionResult Editar()
         {
             try
@@ -148,12 +143,12 @@ namespace FocusAcademy.Controllers
                 usuario.Id = HttpContext.Session.GetInt32("UserId").Value;
                 _usuarioRepositorio.AtualizarUsuario(usuario);
 
-                TempData["Sucesso"] = "Dados atualizados com sucesso!";
+                TempData["SucessoEditar"] = "Dados atualizados com sucesso!";
                 return RedirectToAction("Visualizar");
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Ocorreu um erro ao atualizar seus dados. Tente novamente mais tarde.";
+                TempData["ErroEditar"] = "Ocorreu um erro ao atualizar seus dados. Tente novamente mais tarde.";
                 Console.WriteLine(ex.Message);
                 return RedirectToAction("Visualizar");
             }
@@ -174,7 +169,7 @@ namespace FocusAcademy.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Ocorreu um erro ao carregar a página de matrícula. Tente novamente mais tarde.";
+                TempData["ErroMatricular"] = "Ocorreu um erro ao carregar a página de matrícula. Tente novamente mais tarde.";
                 Console.WriteLine(ex.Message);
                 return RedirectToAction("Index");
             }
@@ -193,27 +188,103 @@ namespace FocusAcademy.Controllers
 
                 if (curso == null)
                 {
-                    TempData["Erro"] = "Curso inválido ou não disponível.";
-                    return RedirectToAction("Matricular");
+                    TempData["ErroMatricular"] = "Curso inválido ou não disponível.";
+                    return RedirectToAction("Index");
                 }
 
                 var usuario = _usuarioRepositorio.ObterUsuarioPorId(usuarioId);
                 if (usuario.Matriculas != null && usuario.Matriculas.Any(m => m.CursoId == cursoId))
                 {
-                    TempData["Erro"] = "Você já está matriculado neste curso.";
+                    TempData["ErroMatricular"] = "Você já está matriculado neste curso.";
                     return RedirectToAction("Index");
                 }
 
                 _usuarioRepositorio.MatricularCurso(usuarioId, cursoId);
 
-                TempData["Sucesso"] = "Matrícula realizada com sucesso!";
+                TempData["SucessoMatricular"] = "Matrícula realizada com sucesso!";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["Erro"] = "Ocorreu um erro inesperado. Tente novamente mais tarde.";
+                TempData["ErroMatricular"] = "Ocorreu um erro inesperado. Tente novamente mais tarde.";
                 Console.WriteLine(ex.Message);
                 return RedirectToAction("Matricular");
+            }
+        }
+
+       public IActionResult ConfirmarCancelamento(int userId, int matriculaId)
+        {
+            try
+            {
+                Console.WriteLine($"Ação ConfirmarCancelamento chamada para MatrículaId: {matriculaId} e UserId: {userId}");
+                
+                var usuario = _usuarioRepositorio.ObterUsuarioComMatriculas(userId);
+
+                if (usuario == null)
+                {
+                    TempData["ErroCancelar"] = "Usuário não encontrado.";
+                    return RedirectToAction("Index");
+                }
+
+                var matricula = usuario.Matriculas.FirstOrDefault(m => m.Id == matriculaId);
+
+                if (matricula == null)
+                {
+                    TempData["ErroCancelar"] = "Matrícula não encontrada.";
+                    return RedirectToAction("Index");
+                }
+
+                ViewData["UserId"] = userId;
+                ViewData["MatriculaId"] = matriculaId;
+                ViewData["UsuarioNome"] = usuario.Nome;
+
+                return View(matricula);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroCancelar"] = $"Erro ao carregar a confirmação de cancelamento: {ex.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmarCancelamentoPost(int userId, int matriculaId)
+        {
+            try
+            {
+                Console.WriteLine($"ConfirmarCancelamentoPost chamado para UserId: {userId} e MatriculaId: {matriculaId}");
+
+                if (userId == 0 || matriculaId == 0)
+                {
+                    TempData["ErroCancelar"] = "Parâmetros inválidos para cancelamento.";
+                    return RedirectToAction("Index", "AreaAluno");
+                }
+
+                var usuario = _usuarioRepositorio.ObterUsuarioComMatriculas(userId);
+                if (usuario == null)
+                {
+                    TempData["ErroCancelar"] = "Usuário não encontrado.";
+                    return RedirectToAction("Index", "AreaAluno");
+                }
+
+                var matricula = usuario.Matriculas.FirstOrDefault(m => m.Id == matriculaId);
+                if (matricula == null)
+                {
+                    TempData["ErroCancelar"] = "Matrícula não encontrada.";
+                    return RedirectToAction("Index", "AreaAluno");
+                }
+
+                // Cancelar a matrícula
+                _usuarioRepositorio.CancelarMatricula(matriculaId);
+                TempData["SucessoCancelar"] = "Matrícula cancelada com sucesso.";
+
+                return RedirectToAction("Index", "AreaAluno");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErroCancelar"] = $"Erro ao cancelar matrícula: {ex.Message}";
+                Console.WriteLine($"Erro ao cancelar matrícula: {ex.Message}");
+                return RedirectToAction("Index", "AreaAluno");
             }
         }
     }

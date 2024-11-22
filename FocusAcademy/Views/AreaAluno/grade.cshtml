@@ -5,82 +5,10 @@
     ViewData["Title"] = "Área do Aluno - Grade";
     var nomeCurso = Model?.Matriculas?.FirstOrDefault()?.Curso?.Nome ?? "Curso não disponível";
 }
-
 <div class="text-center">
     <h2>Curso: @nomeCurso<span id="cursoMatriculado" style="display: none;">@nomeCurso</span></h2>
 </div>
-
-<style>
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-#tabelaEnsinoMedio {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.table {
-    font-size: 14px;
-    color: #333;
-}
-
-.table th, .table td {
-    padding: 15px;
-    text-align: center;
-}
-
-.thead-dark th {
-    background-color: #49052a;
-    color: white;
-    text-transform: uppercase;
-    border-top-left-radius: 10px;  /* Bordas arredondadas */
-    border-top-right-radius: 10px; /* Bordas arredondadas */
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f2f9ff;
-}
-
-.table-bordered th, .table-bordered td {
-    border: 1px solid #dee2e6;
-}
-
-.grade-horaria th {
-    background-color: #49052a;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.grade-horaria td {
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.grade-horaria td:hover {
-    background-color: #e1f5fe;
-    transform: scale(1.02);
-}
-
-.recreio {
-    background-color: #ffeb3b;
-    font-weight: bold;
-    color: #333;
-}
-
-.recreio:hover {
-    background-color: #ffd600;
-    transition: background-color 0.3s;
-}
-
-
-</style>
 <!-- possui javascript que identifica qual curso está matriculado e exibe a grade correspondente -->
-
-<!-- Grade Horária Ensino Médio -->
 <table id="tabelaEnsinoMedio" class="table table-bordered table-striped grade-horaria" style="display: none;">
     <thead class="thead-dark">
         <tr>
@@ -148,7 +76,6 @@ body {
     </tbody>
 </table>
 
-
 <table id="tabelaVestibular" class="table table-bordered table-striped grade-horaria" style="display: none;">
     <thead class="thead-dark">
         <tr>
@@ -162,20 +89,56 @@ body {
     </thead>
     <tbody>
         <tr>
-            <th>7h às 11h</th>
-            <td>Revisão de Matemática</td>
-            <td>Revisão de Química</td>
-            <td>Revisão de Biologia</td>
-            <td>Revisão de Física</td>
-            <td>Revisão de Redação</td>
+            <th>8h às 9h</th>
+            <td>Matemática Avançada</td>
+            <td>Português para ENEM</td>
+            <td>Química Básica</td>
+            <td>História do Brasil</td>
+            <td>Redação e Estruturas Textuais</td>
         </tr>
         <tr>
-            <th>11h às 15h</th>
-            <td>Simulado ENEM</td>
-            <td>Simulado Humanas</td>
-            <td>Simulado Natureza</td>
-            <td>Simulado Linguagens</td>
-            <td>Simulado Matemática</td>
+            <th>9h às 10h</th>
+            <td>Física para Vestibular</td>
+            <td>Geografia Geral</td>
+            <td>Literatura Brasileira</td>
+            <td>Matemática Financeira</td>
+            <td>Inglês para Interpretação</td>
+        </tr>
+        <tr>
+            <th>10h às 11h</th>
+            <td>Reforço em Matemática</td>
+            <td>Arte e Cultura</td>
+            <td>Física Moderna</td>
+            <td>Química Experimental</td>
+            <td>História da Arte</td>
+        </tr>
+        <tr>
+            <th>11h às 12h</th>
+            <td>Exercícios Práticos</td>
+            <td>Aula de Revisão</td>
+            <td>Biologia Geral</td>
+            <td>Português: Análise e Interpretação</td>
+            <td>Matemática: Resolução de Problemas</td>
+        </tr>
+        <tr>
+            <th>12h às 13h</th>
+            <td colspan="5" class="recreio">Recreio</td>
+        </tr>
+        <tr>
+            <th>13h às 14h</th>
+            <td>Simulado de Matemática</td>
+            <td>Leitura Crítica</td>
+            <td>Redação: Prática</td>
+            <td>Revisão de Física</td>
+            <td>Discussão de Temas de Atualidade</td>
+        </tr>
+        <tr>
+            <th>14h às 15h</th>
+            <td>Atividades Interativas</td>
+            <td>Laboratório de Química</td>
+            <td>Jogos de História</td>
+            <td>Produção Textual</td>
+            <td>Estratégias de Estudo</td>
         </tr>
     </tbody>
 </table>
@@ -193,7 +156,7 @@ body {
     </thead>
     <tbody>
         <tr>
-            <th>7h às 11h</th>
+            <th>8h às 9h</th>
             <td>Leitura</td>
             <td>Desenho</td>
             <td>Cores</td>
@@ -201,12 +164,48 @@ body {
             <td>Histórias</td>
         </tr>
         <tr>
-            <th>11h às 15h</th>
-            <td>Jogos</td>
-            <td>Pedagógico</td>
-            <td>Soninho</td>
-            <td>Atividades em Grupo</td>
+            <th>9h às 10h</th>
+            <td>Jogos Educativos</td>
+            <td>Música</td>
+            <td>Exploração</td>
+            <td>Desafios Lógicos</td>
+            <td>Arte</td>
+        </tr>
+        <tr>
+            <th>10h às 11h</th>
+            <td>Recreação</td>
+            <td>Contação de Histórias</td>
+            <td>Jogos Interativos</td>
+            <td>Pintura</td>
             <td>Teatro Infantil</td>
+        </tr>
+        <tr>
+            <th>11h às 12h</th>
+            <td>Exercícios Lúdicos</td>
+            <td>Revisão do Dia</td>
+            <td>Atividades em Grupo</td>
+            <td>Coordenação Motora</td>
+            <td>Jogos Criativos</td>
+        </tr>
+        <tr>
+            <th>12h às 13h</th>
+            <td colspan="5" class="recreio">Recreio</td>
+        </tr>
+        <tr>
+            <th>13h às 14h</th>
+            <td>Atividades Criativas</td>
+            <td>Leitura Compartilhada</td>
+            <td>Desenho em Grupo</td>
+            <td>Jogos de Aprendizado</td>
+            <td>Exploração Sensorial</td>
+        </tr>
+        <tr>
+            <th>14h às 15h</th>
+            <td>Brincadeiras Interativas</td>
+            <td>Jogos de Raciocínio</td>
+            <td>Atividades Manuais</td>
+            <td>Expressão Artística</td>
+            <td>Histórias Colaborativas</td>
         </tr>
     </tbody>
 </table>
@@ -234,3 +233,72 @@ body {
         mostrarTabelaCurso(cursoMatriculado);
     });
 </script>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .text-center h2 {
+        font-size: 24px;
+        color: #34495e;
+        margin-bottom: 20px;
+    }
+
+    #tabelaEnsinoMedio, #tabelaVestibular, #tabelaEnsinoInfantil {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .thead-dark th {
+        background-color: #49052a;
+        color: #fff;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+        background-color: #fff;
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #e0e0e0;
+    }
+
+    .grade-horaria td {
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .grade-horaria td:hover {
+        background-color: #e0f7fa;
+        transform: scale(1.03);
+        cursor: pointer;
+    }
+
+    .recreio {
+        background-color: #ffeb3b;
+        font-weight: bold;
+        color: #444;
+        text-transform: uppercase;
+    }
+
+    .recreio:hover {
+        background-color: #ffd600;
+        transition: background-color 0.3s;
+    }
+</style>

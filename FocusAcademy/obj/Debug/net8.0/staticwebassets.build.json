@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8OfLoVLYGqI/zvnFFFqlXtHsRmH5vEWov9oxpQuQK70=",
+  "Hash": "tePrO7j2Pl25mU8usSwbxxXY0Ht6febvNFKHG7H01fs=",
   "Source": "FocusAcademy",
   "BasePath": "_content/FocusAcademy",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\prof5.svg"
+    },
+    {
+      "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\js\\formValidation.js",
+      "SourceId": "FocusAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\",
+      "BasePath": "_content/FocusAcademy",
+      "RelativePath": "js/formValidation.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\formValidation.js"
     },
     {
       "Identity": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\js\\site.js",

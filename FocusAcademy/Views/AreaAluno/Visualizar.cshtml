@@ -5,11 +5,68 @@
     ViewData["Title"] = "Visualizar Cadastro";
 }
 
+<div class="area-aluno-container">
+    <h2 class="subtitle">Dados Cadastrais</h2>
+
+    <ul class="user-details">
+        @if (TempData["SucessoEditar"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SucessoEditar"]
+                </div>
+            }
+        @if (TempData["ErroCancelar"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["ErroEditar"]
+                </div>
+            }
+        <li>
+            <span>Curso Matriculado:</span>
+            <span>
+                @if (Model.Matriculas != null && Model.Matriculas.Any())
+                {
+                    @Model.Matriculas.First().Curso.Nome
+                }
+                else
+                {
+                    <em>Não há matrícula ativa</em>
+                }
+            </span>
+        </li>
+        <li>
+            <span>Nome:</span>
+            <span>@Model.Nome</span>
+        </li>
+        <li>
+            <span>Data de Nascimento:</span>
+            <span>@(Model.DataNascimento.HasValue ? Model.DataNascimento.Value.ToShortDateString() : "Não informado")</span>
+        </li>
+        <li>
+            <span>CPF:</span>
+            <span>@(string.IsNullOrEmpty(Model.Cpf) ? "Não informado" : Model.Cpf)</span>
+        </li>
+        <li>
+            <span>Endereço:</span>
+            <span>@(string.IsNullOrEmpty(Model.Endereco) ? "Não informado" : Model.Endereco)</span>
+        </li>
+        <li>
+            <span>Telefone:</span>
+            <span>@(string.IsNullOrEmpty(Model.Telefone) ? "Não informado" : Model.Telefone)</span>
+        </li>
+        <li>
+            <span>Email:</span>
+            <span>@Model.Email</span>
+        </li>
+    </ul>
+
+    <div class="text-center">
+        <a asp-controller="AreaAluno" asp-action="Editar" class="btn-primary">Editar Cadastro</a>
+    </div>
+</div>
 <style>
     body {
         font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
         background-color: #f4f6f9;
     }
 
@@ -96,38 +153,3 @@
     }
 
 </style>
-
-<div class="area-aluno-container">
-    <h2 class="subtitle">Dados Cadastrais</h2>
-
-    <ul class="user-details">
-        <li>
-            <span>Nome:</span>
-            <span>@Model.Nome</span>
-        </li>
-        <li>
-            <span>Data de Nascimento:</span>
-            <span>@(Model.DataNascimento.HasValue ? Model.DataNascimento.Value.ToShortDateString() : "Não informado")</span>
-        </li>
-        <li>
-            <span>CPF:</span>
-            <span>@(string.IsNullOrEmpty(Model.Cpf) ? "Não informado" : Model.Cpf)</span>
-        </li>
-        <li>
-            <span>Endereço:</span>
-            <span>@(string.IsNullOrEmpty(Model.Endereco) ? "Não informado" : Model.Endereco)</span>
-        </li>
-        <li>
-            <span>Telefone:</span>
-            <span>@(string.IsNullOrEmpty(Model.Telefone) ? "Não informado" : Model.Telefone)</span>
-        </li>
-        <li>
-            <span>Email:</span>
-            <span>@Model.Email</span>
-        </li>
-    </ul>
-
-    <div class="text-center">
-        <a asp-controller="AreaAluno" asp-action="Editar" class="btn-primary">Editar Cadastro</a>
-    </div>
-</div>

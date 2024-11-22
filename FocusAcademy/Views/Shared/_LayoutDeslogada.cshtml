@@ -17,13 +17,24 @@
         <a asp-area="" asp-controller="Home" asp-action="Index" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"></a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="nav-link px-2 link-secondary">Olá, @ViewData["UsuarioNome"]</li>
-            <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">Página Inicial</a></li>
-            <li><a asp-area="" asp-controller="AreaAluno" asp-action="Index" class="nav-link px-2 link-dark">Área do Aluno</a></li>
+            <li class="nav-item">
+                <span class="nav-link px-2 link-secondary">
+                    <strong>Olá, <span style="color: #49052a;">@ViewData["UsuarioNome"]</span></strong>
+                </span>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link px-2 link-secondary">
+                    <strong>Página Inicial</strong>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-area="" asp-controller="AreaAluno" asp-action="Index" class="nav-link px-2 link-dark">
+                    <strong>Área do Aluno</strong>
+                </a>
+            </li>
         </ul>
-
         <div class="col-md-3 text-end">
-            <a class="btn custom-button" asp-controller="Login" asp-action="Sair">Sair</a>
+            <a class="btn custom-button" asp-controller="Login" asp-action="Sair"><strong>Sair</strong> </a>
         </div>
     </header>
 

@@ -18,8 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\User\Desktop\FocusAcademy\FocusAcademy
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/CancelarMatricula.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXENhbmNlbGFyTWF0cmljdWxhLmNzaHRtbA==
+[c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/ConfirmarCancelamento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJlYUFsdW5vXENvbmZpcm1hckNhbmNlbGFtZW50by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/User/Desktop/FocusAcademy/FocusAcademy/Views/AreaAluno/Editar.cshtml]

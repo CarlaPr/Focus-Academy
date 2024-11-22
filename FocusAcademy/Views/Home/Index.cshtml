@@ -1,109 +1,11 @@
-﻿@model HomeModel //comando para a view ter contato com a model. Lendo o conteudo dela
-
+﻿@model HomeModel
 @{
     ViewData["Title"] = "Página Inicial";
 }
-<style>
-
-    .professores {
-        background-color: #49052a;
-        margin-top: 0px;
-        padding: 40px;
-    }
-
-    .professores h2{
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        margin-bottom: 30px;
-    }
-
-    .professores p{
-        text-align: center;
-        color: white;
-    }
-
-    .gallery-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-
-    .gallery-item {
-        text-align: center;
-        margin: 10px;
-        width: 150px;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 85%;
-    }
-
-    .description {
-        margin-top: 5px;
-        font-size: 14px;
-        color: white;
-    }
-
-    #fotoinicial{        
-        margin: 0px;
-        padding: 0px;
-    }
-
-    #fotoinicial img {
-        width: 100%;          /* Faz a imagem ocupar 100% da largura do contêiner */
-        height: auto;         /* Mantém a proporção original da imagem */
-        object-fit: cover;    /* Cobre todo o contêiner, mantendo a proporção */
-    }
-
-    .indicacao{
-        background-color: #49052a;
-        margin: 0px;
-        padding: 20px;
-    }
-
-    .indicacao h1{
-        color: white;
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .indicacao p{ 
-        padding: 10px;
-        color: white;
-        font-size: 1rem;
-        text-align: justify;
-    }
-
-    hr {
-        border: none;
-        height: 1px;
-        background-color: white;
-    }
-
-    .cursos{
-        padding: 10px;
-    }
-
-    .cursos h1{
-        color: #49052a;
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    
-</style>
-
-<div id="fotoinicial">
+<div class="banner"  id="fotoinicial">
     <img src="@Url.Content("~/Images/Focus_banner_index.svg")">
 </div>
 
-<!-- Indicação -->
 <div class="indicacao">
     <h1>Focus Academy, seu futuro começa aqui!</h1>
     <p>Na Focus Academy, nossa missão é transformar o aprendizado em uma experiência 
@@ -118,12 +20,11 @@
             e acolhedor garante que cada aluno receba a atenção necessária para alcançar o melhor
              desempenho, seja nos vestibulares ou nas atividades de reforço escolar.
     </p>
-    <hr>
+<hr>
 </div>
 
 <div class="professores">
     <h2>Conheça nossos professores!</h2>
-<!-- Fotos dos professores -->
         <div class="gallery-container">
             <div class="gallery-item">
                 <img src="@Url.Content("~/Images/prof1.svg")" alt="Profº Jorge Simião">
@@ -155,12 +56,10 @@
             nosso sucesso educacional.</p>
 </div>
 
-<!-- Seção de Cursos -->
-<div class="cursos">
+<div class="cursos" id="cursos">
     <div class="container mt-5">
         <h1>Confira nossos cursos!</h1>
         <div class="d-flex flex-wrap justify-content-around">
-            <!-- curso reforço 1 -->
             <div class="card mb-4" style="width: 18rem;">
                 <img class="card-img-top" src="~/Images/3.svg" alt="Card image cap">
                 <div class="card-body">
@@ -177,8 +76,6 @@
                     <a asp-area="" asp-controller="AreaAluno" asp-action="Matricular" class="card-link">Matricule-se</a>
                 </div>
             </div>
-
-            <!-- curso reforço 2 -->
             <div class="card mb-4" style="width: 18rem;">
                 <img class="card-img-top" src="~/Images/2.svg" alt="Card image cap">
                 <div class="card-body">
@@ -198,8 +95,6 @@
                     <a asp-area="" asp-controller="AreaAluno" asp-action="Matricular" class="card-link">Matricule-se</a>
                 </div>
             </div>
-
-            <!-- curso reforço 3 -->
             <div class="card mb-4" style="width: 18rem;">
                 <img class="card-img-top" src="~/Images/1.svg" alt="Card image cap">
                 <div class="card-body">
@@ -222,3 +117,143 @@
         </div>
     </div>
 </div>
+
+<br><br><br><br><br>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: white;
+        box-sizing: border-box;
+    }
+
+    .banner{
+        background-color: white;
+    }
+    
+    #fotoinicial {
+        margin: 0;
+        padding: 0;
+    }
+
+    #fotoinicial img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .indicacao {
+        background-color: #49052a;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .indicacao h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .indicacao p {
+        font-size: 1rem;
+        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .indicacao hr {
+        border: none;
+        height: 1px;
+        background-color: white;
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    .professores {
+        background-color: #49052a;
+        padding: 40px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .professores h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .professores p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+
+    .gallery-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .gallery-item {
+        text-align: center;
+        width: 150px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid white;
+    }
+
+    .gallery-item .description {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: white;
+    }
+
+    /* Seção de cursos */
+    .cursos {
+        padding: 40px 20px;
+    }
+
+    .cursos h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #49052a;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h5 {
+        font-size: 1.25rem;
+        color: #49052a;
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+        text-align: justify;
+    }
+
+    .card .list-group-item {
+        font-size: 0.9rem;
+    }
+
+    .card-link {
+        font-weight: bold;
+        color: #49052a;
+        text-decoration: none;
+    }
+
+    .card-link:hover {
+        color: #32011d;
+        text-decoration: underline;
+    }
+</style>

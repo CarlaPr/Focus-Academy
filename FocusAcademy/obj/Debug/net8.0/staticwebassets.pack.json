@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\js\\formValidation.js",
+      "PackagePath": "staticwebassets\\js\\formValidation.js"
+    },
+    {
       "Id": "c:\\Users\\User\\Desktop\\FocusAcademy\\FocusAcademy\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

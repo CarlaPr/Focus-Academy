@@ -1,0 +1,333 @@
+FocusAcademy
+ ┣ 📂.vscode
+ ┃ ┣ 📜launch.json
+ ┃ ┗ 📜settings.json
+ ┣ 📂bin
+ ┃ ┗ 📂Debug
+ ┃ ┃ ┗ 📂net8.0
+ ┃ ┃ ┃ ┣ 📂cs
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┣ 📂de
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂es
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂fr
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂it
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂ja
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂ko
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂pl
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┣ 📂pt-BR
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂ru
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂runtimes
+ ┃ ┃ ┃ ┃ ┣ 📂unix
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂lib
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂net6.0
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂net8.0
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.dll
+ ┃ ┃ ┃ ┃ ┣ 📂win
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂lib
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂net6.0
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂net8.0
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.Data.SqlClient.dll
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜System.Runtime.Caching.dll
+ ┃ ┃ ┃ ┃ ┣ 📂win-arm
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂native
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.SNI.dll
+ ┃ ┃ ┃ ┃ ┣ 📂win-arm64
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂native
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.SNI.dll
+ ┃ ┃ ┃ ┃ ┣ 📂win-x64
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂native
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.SNI.dll
+ ┃ ┃ ┃ ┃ ┗ 📂win-x86
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂native
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.SNI.dll
+ ┃ ┃ ┃ ┣ 📂tr
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┣ 📂zh-Hans
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📂zh-Hant
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.resources.dll
+ ┃ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.resources.dll
+ ┃ ┃ ┃ ┃ ┗ 📜Microsoft.Data.SqlClient.resources.dll
+ ┃ ┃ ┃ ┣ 📜appsettings.Development.json
+ ┃ ┃ ┃ ┣ 📜appsettings.json
+ ┃ ┃ ┃ ┣ 📜Azure.Core.dll
+ ┃ ┃ ┃ ┣ 📜Azure.Identity.dll
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.deps.json
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.dll
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.exe
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.pdb
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.runtimeconfig.json
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.staticwebassets.runtime.json
+ ┃ ┃ ┃ ┣ 📜Humanizer.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.Bcl.AsyncInterfaces.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.CodeAnalysis.Workspaces.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.Data.SqlClient.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.EntityFrameworkCore.Abstractions.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.EntityFrameworkCore.Design.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.EntityFrameworkCore.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.EntityFrameworkCore.Relational.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.EntityFrameworkCore.SqlServer.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.Extensions.DependencyModel.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.Identity.Client.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.Identity.Client.Extensions.Msal.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.Abstractions.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.JsonWebTokens.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.Logging.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.Protocols.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.IdentityModel.Tokens.dll
+ ┃ ┃ ┃ ┣ 📜Microsoft.SqlServer.Server.dll
+ ┃ ┃ ┃ ┣ 📜Mono.TextTemplating.dll
+ ┃ ┃ ┃ ┣ 📜Newtonsoft.Json.dll
+ ┃ ┃ ┃ ┣ 📜System.ClientModel.dll
+ ┃ ┃ ┃ ┣ 📜System.CodeDom.dll
+ ┃ ┃ ┃ ┣ 📜System.Composition.AttributedModel.dll
+ ┃ ┃ ┃ ┣ 📜System.Composition.Convention.dll
+ ┃ ┃ ┃ ┣ 📜System.Composition.Hosting.dll
+ ┃ ┃ ┃ ┣ 📜System.Composition.Runtime.dll
+ ┃ ┃ ┃ ┣ 📜System.Composition.TypedParts.dll
+ ┃ ┃ ┃ ┣ 📜System.Configuration.ConfigurationManager.dll
+ ┃ ┃ ┃ ┣ 📜System.IdentityModel.Tokens.Jwt.dll
+ ┃ ┃ ┃ ┣ 📜System.Memory.Data.dll
+ ┃ ┃ ┃ ┣ 📜System.Runtime.Caching.dll
+ ┃ ┃ ┃ ┗ 📜System.Security.Cryptography.ProtectedData.dll
+ ┣ 📂Controllers
+ ┃ ┣ 📜AreaAlunoController.cs
+ ┃ ┣ 📜HomeController.cs
+ ┃ ┣ 📜LoginController.cs
+ ┃ ┣ 📜MatriculaController.cs
+ ┃ ┗ 📜UsuarioController.cs
+ ┣ 📂Data
+ ┃ ┗ 📜UsuarioRepositorio.cs
+ ┣ 📂Enums
+ ┃ ┗ 📜PerfilEnum.cs
+ ┣ 📂Models
+ ┃ ┣ 📜CursoModel.cs
+ ┃ ┣ 📜ErrorViewModel.cs
+ ┃ ┣ 📜HomeModel.cs
+ ┃ ┣ 📜LoginModel.cs
+ ┃ ┣ 📜MatriculaModel.cs
+ ┃ ┗ 📜UsuarioModel.cs
+ ┣ 📂obj
+ ┃ ┣ 📂Debug
+ ┃ ┃ ┗ 📂net8.0
+ ┃ ┃ ┃ ┣ 📂ref
+ ┃ ┃ ┃ ┃ ┗ 📜FocusAcademy.dll
+ ┃ ┃ ┃ ┣ 📂refint
+ ┃ ┃ ┃ ┃ ┗ 📜FocusAcademy.dll
+ ┃ ┃ ┃ ┣ 📂scopedcss
+ ┃ ┃ ┃ ┃ ┣ 📂bundle
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜FocusAcademy.styles.css
+ ┃ ┃ ┃ ┃ ┣ 📂projectbundle
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜FocusAcademy.bundle.scp.css
+ ┃ ┃ ┃ ┃ ┗ 📂Views
+ ┃ ┃ ┃ ┃ ┃ ┗ 📂Shared
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜_Layout.cshtml.rz.scp.css
+ ┃ ┃ ┃ ┣ 📂staticwebassets
+ ┃ ┃ ┃ ┃ ┣ 📜msbuild.build.FocusAcademy.props
+ ┃ ┃ ┃ ┃ ┣ 📜msbuild.buildMultiTargeting.FocusAcademy.props
+ ┃ ┃ ┃ ┃ ┣ 📜msbuild.buildTransitive.FocusAcademy.props
+ ┃ ┃ ┃ ┃ ┗ 📜msbuild.FocusAcademy.Microsoft.AspNetCore.StaticWebAssets.props
+ ┃ ┃ ┃ ┣ 📜.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+ ┃ ┃ ┃ ┣ 📜apphost.exe
+ ┃ ┃ ┃ ┣ 📜FocusAca.9E757E04.Up2Date
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.AssemblyInfo.cs
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.AssemblyInfoInputs.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.assets.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.csproj.AssemblyReference.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.csproj.CoreCompileInputs.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.csproj.FileListAbsolute.txt
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.dll
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.GeneratedMSBuildEditorConfig.editorconfig
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.genruntimeconfig.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.GlobalUsings.g.cs
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.MvcApplicationPartsAssemblyInfo.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.pdb
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.RazorAssemblyInfo.cache
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.RazorAssemblyInfo.cs
+ ┃ ┃ ┃ ┣ 📜FocusAcademy.sourcelink.json
+ ┃ ┃ ┃ ┣ 📜staticwebassets.build.json
+ ┃ ┃ ┃ ┣ 📜staticwebassets.development.json
+ ┃ ┃ ┃ ┗ 📜staticwebassets.pack.json
+ ┃ ┣ 📜FocusAcademy.csproj.EntityFrameworkCore.targets
+ ┃ ┣ 📜FocusAcademy.csproj.nuget.dgspec.json
+ ┃ ┣ 📜FocusAcademy.csproj.nuget.g.props
+ ┃ ┣ 📜FocusAcademy.csproj.nuget.g.targets
+ ┃ ┣ 📜project.assets.json
+ ┃ ┗ 📜project.nuget.cache
+ ┣ 📂Properties
+ ┃ ┗ 📜launchSettings.json
+ ┣ 📂Views
+ ┃ ┣ 📂AreaAluno
+ ┃ ┃ ┣ 📜ConfirmarCancelamento.cshtml
+ ┃ ┃ ┣ 📜Editar.cshtml
+ ┃ ┃ ┣ 📜Grade.cshtml
+ ┃ ┃ ┣ 📜Index.cshtml
+ ┃ ┃ ┣ 📜Matricular.cshtml
+ ┃ ┃ ┗ 📜Visualizar.cshtml
+ ┃ ┣ 📂Home
+ ┃ ┃ ┣ 📜Index.cshtml
+ ┃ ┃ ┗ 📜Privacy.cshtml
+ ┃ ┣ 📂Login
+ ┃ ┃ ┗ 📜Index.cshtml
+ ┃ ┣ 📂Shared
+ ┃ ┃ ┣ 📂Components
+ ┃ ┃ ┃ ┗ 📂Menu
+ ┃ ┃ ┃ ┃ ┗ 📜Default.cshtml
+ ┃ ┃ ┣ 📜Error.cshtml
+ ┃ ┃ ┣ 📜_Layout.cshtml
+ ┃ ┃ ┣ 📜_Layout.cshtml.css
+ ┃ ┃ ┣ 📜_LayoutDeslogada.cshtml
+ ┃ ┃ ┗ 📜_ValidationScriptsPartial.cshtml
+ ┃ ┣ 📂Usuario
+ ┃ ┃ ┗ 📜Cadastrar.cshtml
+ ┃ ┣ 📜_ViewImports.cshtml
+ ┃ ┗ 📜_ViewStart.cshtml
+ ┣ 📂wwwroot
+ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📜site.css
+ ┃ ┣ 📂Images
+ ┃ ┃ ┣ 📜1.svg
+ ┃ ┃ ┣ 📜2.svg
+ ┃ ┃ ┣ 📜3.svg
+ ┃ ┃ ┣ 📜Focus_banner_index.svg
+ ┃ ┃ ┣ 📜prof1.svg
+ ┃ ┃ ┣ 📜prof2.svg
+ ┃ ┃ ┣ 📜prof3.svg
+ ┃ ┃ ┣ 📜prof4.svg
+ ┃ ┃ ┗ 📜prof5.svg
+ ┃ ┣ 📂js
+ ┃ ┃ ┗ 📜site.js
+ ┃ ┣ 📂lib
+ ┃ ┃ ┣ 📂bootstrap
+ ┃ ┃ ┃ ┣ 📂dist
+ ┃ ┃ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.rtl.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.rtl.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.rtl.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-grid.rtl.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.rtl.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.rtl.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.rtl.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-reboot.rtl.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.rtl.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.rtl.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.rtl.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap-utilities.rtl.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.min.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.min.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.rtl.css
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.rtl.css.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.rtl.min.css
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜bootstrap.rtl.min.css.map
+ ┃ ┃ ┃ ┃ ┗ 📂js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.bundle.js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.bundle.js.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.bundle.min.js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.bundle.min.js.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.esm.js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.esm.js.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.esm.min.js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.esm.min.js.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.js
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.js.map
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜bootstrap.min.js
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜bootstrap.min.js.map
+ ┃ ┃ ┃ ┗ 📜LICENSE
+ ┃ ┃ ┣ 📂jquery
+ ┃ ┃ ┃ ┣ 📂dist
+ ┃ ┃ ┃ ┃ ┣ 📜jquery.js
+ ┃ ┃ ┃ ┃ ┣ 📜jquery.min.js
+ ┃ ┃ ┃ ┃ ┗ 📜jquery.min.map
+ ┃ ┃ ┃ ┗ 📜LICENSE.txt
+ ┃ ┃ ┣ 📂jquery-validation
+ ┃ ┃ ┃ ┣ 📂dist
+ ┃ ┃ ┃ ┃ ┣ 📜additional-methods.js
+ ┃ ┃ ┃ ┃ ┣ 📜additional-methods.min.js
+ ┃ ┃ ┃ ┃ ┣ 📜jquery.validate.js
+ ┃ ┃ ┃ ┃ ┗ 📜jquery.validate.min.js
+ ┃ ┃ ┃ ┗ 📜LICENSE.md
+ ┃ ┃ ┗ 📂jquery-validation-unobtrusive
+ ┃ ┃ ┃ ┣ 📜jquery.validate.unobtrusive.js
+ ┃ ┃ ┃ ┣ 📜jquery.validate.unobtrusive.min.js
+ ┃ ┃ ┃ ┗ 📜LICENSE.txt
+ ┃ ┗ 📜favicon.ico
+ ┣ 📜appsettings.Development.json
+ ┣ 📜appsettings.json
+ ┣ 📜depois.txt
+ ┣ 📜FocusAcademy.csproj
+ ┣ 📜FocusAcademy.generated.sln
+ ┗ 📜Program.cs

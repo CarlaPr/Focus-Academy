@@ -1,106 +1,17 @@
 ﻿@model UsuarioModel
-
 @{
     Layout = "_LayoutDeslogada";
     ViewData["Title"] = "Editar Cadastro";
 }
-<style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f6f9;
-    }
-
-    .area-aluno-container {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 30px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        border: 1px solid #ddd;
-        transition: box-shadow 0.3s ease;
-    }
-
-    .area-aluno-container:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .subtitle {
-        font-size: 1.5em;
-        color: #34495e;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .btn-primary {
-        padding: 12px 25px;
-        font-size: 16px;
-        border-radius: 8px;
-        background-color: #3498db;
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .btn-primary:hover {
-        background-color: #2980b9;
-    }
-
-    .btn-danger {
-        padding: 12px 25px;
-        font-size: 16px;
-        border-radius: 8px;
-        background-color: #dc3545;
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .btn-danger:hover {
-        background-color: #c82333;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    .form-control:focus {
-        border-color: #80bdff;
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
-
-    .cancelar-matricula {
-        margin-top: 20px;
-        text-align: center;
-    }
-</style>
+<script src="~/js/formValidation.js"></script>
 
 <div class="area-aluno-container">
-    <h2 class="subtitle">Editar Dados Cadastrais</h2>
+    <h2 class="subtitle"><strong>Editar Dados Cadastrais</strong></h2>
 
-    <p><strong>Matrícula Ativa:</strong> @Model.Matriculas.FirstOrDefault()?.Id ?? "Nenhuma matrícula ativa"</p>
-
+    @foreach (var matricula in Model.Matriculas)
+    {
+        <p><strong>Matrícula Ativa:</strong> @(matricula?.Curso?.Nome ?? "Curso não disponível")</p>
+    }
     <form asp-action="Editar" method="post">
         <div class="form-group">
             <label for="Nome">Nome:</label>
@@ -127,13 +38,127 @@
             <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
         </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <div class="button-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+        @foreach (var matricula in Model.Matriculas)
+        {
+            <div class="cancelar-matricula">
+                <a class="btn btn-danger" 
+                asp-controller="AreaAluno" 
+                asp-action="ConfirmarCancelamento" 
+                asp-route-userId="@Model.Id" 
+                asp-route-matriculaId="@matricula.Id">
+                    Cancelar Matrícula
+                </a>
+            </div>
+        }
     </form>
-
-    <div class="cancelar-matricula margin-top-20">
-        <form asp-action="CancelarMatricula" method="post">
-            <input type="hidden" name="MatriculaId" value="@Model.Matriculas.FirstOrDefault()?.Id" />
-            <button type="submit" class="btn btn-danger">Cancelar Matrícula</button>
-        </form>
-    </div>
 </div>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .area-aluno-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ddd;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .area-aluno-container:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .subtitle {
+        font-size: 1.5em;
+        color: #49052a;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+        color: #49052a;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .cancelar-matricula {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-danger {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #49052a;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #270518;
+    }
+
+    .error-message { 
+        font-size: 12px; 
+        color: red; 
+        margin-top: 5px; 
+    }
+
+</style>

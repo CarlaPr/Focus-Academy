@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using FocusAcademy.Models;
-using Microsoft.Extensions.Configuration;
 using FocusAcademy.Enums;
 
 namespace FocusAcademy.Data
@@ -24,10 +21,11 @@ namespace FocusAcademy.Data
                 
                 usuario.Cpf = new string(usuario.Cpf.Where(char.IsDigit).ToArray());
 
-                if (usuario.Cpf.Length != 11)
+                if (CpfExiste(usuario.Cpf))
                 {
-                    throw new ArgumentException("O CPF deve conter exatamente 11 dígitos.");
+                    throw new ArgumentException("Este CPF já está cadastrado.");
                 }
+
 
                 SqlCommand cmd = new SqlCommand("INSERT INTO Usuarios (Nome, Email, Senha, Cpf, DataNascimento, Endereco, Telefone, Perfil) VALUES (@Nome, @Email, @Senha, @Cpf, @DataNascimento, @Endereco, @Telefone, @Perfil)", conn);
                 
@@ -49,6 +47,18 @@ namespace FocusAcademy.Data
                 cmd.Parameters.AddWithValue("@Perfil", (int)usuario.Perfil);
 
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        public bool CpfExiste(string cpf)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(1) FROM Usuarios WHERE Cpf = @Cpf", conn);
+                cmd.Parameters.AddWithValue("@Cpf", cpf);
+
+                return (int)cmd.ExecuteScalar() > 0;
             }
         }
 
@@ -80,7 +90,6 @@ namespace FocusAcademy.Data
 
             return usuario;
         }
-
         public UsuarioModel ObterUsuarioComMatriculas(int userId)
         {
             UsuarioModel usuario = null;
@@ -88,7 +97,7 @@ namespace FocusAcademy.Data
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                
+
                 string query = @"
                     SELECT u.Id, u.Nome, u.Email, u.Perfil, 
                         m.Id AS MatriculaId, c.Nome AS CursoNome 
@@ -129,15 +138,13 @@ namespace FocusAcademy.Data
 
                             usuario.Matriculas.Add(matricula);
                         }
-                        else
-                        {
-                            Console.WriteLine("Nenhuma matrícula encontrada para este usuário.");
-                        }
                     }
                 }
             }
-        return usuario;
+
+            return usuario;
         }
+
         public List<CursoModel> ObterCursosDisponiveis()
         {
             List<CursoModel> cursos = new List<CursoModel>();
@@ -177,24 +184,56 @@ namespace FocusAcademy.Data
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Id, Nome, Email, Perfil, DataNascimento, Cpf, Endereco, Telefone FROM Usuarios WHERE Id = @UserId", conn);
-                cmd.Parameters.AddWithValue("@UserId", userId);
 
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                // Consulta principal para buscar os dados do usuário
+                SqlCommand cmdUsuario = new SqlCommand("SELECT Id, Nome, Email, Perfil, DataNascimento, Cpf, Endereco, Telefone FROM Usuarios WHERE Id = @UserId", conn);
+                cmdUsuario.Parameters.AddWithValue("@UserId", userId);
+
+                using (SqlDataReader readerUsuario = cmdUsuario.ExecuteReader())
                 {
-                    if (reader.Read())
+                    if (readerUsuario.Read())
                     {
                         usuario = new UsuarioModel
                         {
-                            Id = (int)reader["Id"],
-                            Nome = reader["Nome"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            Perfil = (PerfilEnum)Enum.Parse(typeof(PerfilEnum), reader["Perfil"].ToString()),
-                            DataNascimento = reader["DataNascimento"] as DateTime?,  // Adicionando DataNascimento
-                            Cpf = reader["Cpf"].ToString(),  // Adicionando Cpf
-                            Endereco = reader["Endereco"].ToString(),  // Adicionando Endereco
-                            Telefone = reader["Telefone"].ToString()  // Adicionando Telefone
+                            Id = (int)readerUsuario["Id"],
+                            Nome = readerUsuario["Nome"].ToString(),
+                            Email = readerUsuario["Email"].ToString(),
+                            Perfil = (PerfilEnum)Enum.Parse(typeof(PerfilEnum), readerUsuario["Perfil"].ToString()),
+                            DataNascimento = readerUsuario["DataNascimento"] as DateTime?,
+                            Cpf = readerUsuario["Cpf"].ToString(),
+                            Endereco = readerUsuario["Endereco"].ToString(),
+                            Telefone = readerUsuario["Telefone"].ToString(),
+                            Matriculas = new List<MatriculaModel>() // Inicializa a lista de matrículas
                         };
+                    }
+                }
+
+                // Se o usuário foi encontrado, busca as matrículas associadas
+                if (usuario != null)
+                {
+                    SqlCommand cmdMatriculas = new SqlCommand(@"
+                        SELECT m.Id, m.CursoId, c.Nome AS CursoNome 
+                        FROM Matriculas m
+                        INNER JOIN Cursos c ON m.CursoId = c.Id
+                        WHERE m.UsuarioId = @UserId", conn);
+                    cmdMatriculas.Parameters.AddWithValue("@UserId", userId);
+
+                    using (SqlDataReader readerMatriculas = cmdMatriculas.ExecuteReader())
+                    {
+                        while (readerMatriculas.Read())
+                        {
+                            var matricula = new MatriculaModel
+                            {
+                                Id = (int)readerMatriculas["Id"],
+                                CursoId = (int)readerMatriculas["CursoId"],
+                                Curso = new CursoModel
+                                {
+                                    Id = (int)readerMatriculas["CursoId"],
+                                    Nome = readerMatriculas["CursoNome"].ToString()
+                                }
+                            };
+                            usuario.Matriculas.Add(matricula);
+                        }
                     }
                 }
             }
@@ -202,7 +241,7 @@ namespace FocusAcademy.Data
             return usuario;
         }
 
-       public void AtualizarUsuario(UsuarioModel usuario)
+        public void AtualizarUsuario(UsuarioModel usuario)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -218,14 +257,13 @@ namespace FocusAcademy.Data
                 Console.WriteLine($"Atualizando usuário {usuario.Id} com CPF: {usuario.Cpf}");
 
                 // Atualiza os dados do usuário
-                SqlCommand cmd = new SqlCommand("UPDATE Usuarios SET Nome = @Nome, Email = @Email, Cpf = @Cpf, DataNascimento = @DataNascimento, Endereco = @Endereco, Telefone = @Telefone, Senha = @Senha WHERE Id = @Id", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Usuarios SET Nome = @Nome, Email = @Email, Cpf = @Cpf, DataNascimento = @DataNascimento, Endereco = @Endereco, Telefone = @Telefone WHERE Id = @Id", conn);
                 cmd.Parameters.AddWithValue("@Nome", usuario.Nome);
                 cmd.Parameters.AddWithValue("@Email", usuario.Email);
-                cmd.Parameters.AddWithValue("@Cpf", usuario.Cpf);  // Certifique-se de que @Cpf está sendo passado corretamente
+                cmd.Parameters.AddWithValue("@Cpf", usuario.Cpf);
                 cmd.Parameters.AddWithValue("@DataNascimento", usuario.DataNascimento);
                 cmd.Parameters.AddWithValue("@Endereco", usuario.Endereco);
                 cmd.Parameters.AddWithValue("@Telefone", usuario.Telefone);
-                cmd.Parameters.AddWithValue("@Senha", usuario.Senha);
                 cmd.Parameters.AddWithValue("@Id", usuario.Id);
 
                 cmd.ExecuteNonQuery();
@@ -292,25 +330,67 @@ namespace FocusAcademy.Data
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
-
-                // Verificar se o usuário e o curso existem
-                var usuarioExistente = new SqlCommand("SELECT COUNT(1) FROM Usuarios WHERE Id = @UsuarioId", conn);
-                usuarioExistente.Parameters.AddWithValue("@UsuarioId", usuarioId);
-
-                var cursoExistente = new SqlCommand("SELECT COUNT(1) FROM Cursos WHERE Id = @CursoId", conn);
-                cursoExistente.Parameters.AddWithValue("@CursoId", cursoId);
-
-                if ((int)usuarioExistente.ExecuteScalar() == 0 || (int)cursoExistente.ExecuteScalar() == 0)
+                using (SqlTransaction transaction = conn.BeginTransaction())
                 {
-                    throw new ArgumentException("Usuário ou curso não encontrado.");
+                    try
+                    {
+                        // Verificar se usuário existe
+                        SqlCommand usuarioExistente = new SqlCommand("SELECT COUNT(1) FROM Usuarios WHERE Id = @UsuarioId", conn, transaction);
+                        usuarioExistente.Parameters.AddWithValue("@UsuarioId", usuarioId);
+
+                        // Verificar se curso existe
+                        SqlCommand cursoExistente = new SqlCommand("SELECT COUNT(1) FROM Cursos WHERE Id = @CursoId", conn, transaction);
+                        cursoExistente.Parameters.AddWithValue("@CursoId", cursoId);
+
+                        if ((int)usuarioExistente.ExecuteScalar() == 0 || (int)cursoExistente.ExecuteScalar() == 0)
+                        {
+                            throw new ArgumentException("Usuário ou curso não encontrado.");
+                        }
+
+                        // Inserir matrícula
+                        SqlCommand cmdMatricula = new SqlCommand("INSERT INTO Matriculas (UsuarioId, CursoId) VALUES (@UsuarioId, @CursoId)", conn, transaction);
+                        cmdMatricula.Parameters.AddWithValue("@UsuarioId", usuarioId);
+                        cmdMatricula.Parameters.AddWithValue("@CursoId", cursoId);
+
+                        cmdMatricula.ExecuteNonQuery();
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
                 }
+            }
+        }
+        public void CancelarMatricula(int matriculaId)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                try
+                {
+                    Console.WriteLine($"Tentando cancelar matrícula com ID: {matriculaId}");
 
-                // Inserir a matrícula
-                SqlCommand cmdMatricula = new SqlCommand("INSERT INTO Matriculas (UsuarioId, CursoId) VALUES (@UsuarioId, @CursoId)", conn);
-                cmdMatricula.Parameters.AddWithValue("@UsuarioId", usuarioId);
-                cmdMatricula.Parameters.AddWithValue("@CursoId", cursoId);
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Matriculas WHERE Id = @MatriculaId", conn);
+                    cmd.Parameters.AddWithValue("@MatriculaId", matriculaId);
 
-                cmdMatricula.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    Console.WriteLine($"Linhas afetadas no banco de dados: {rowsAffected}");
+
+                    if (rowsAffected == 0)
+                    {
+                        Console.WriteLine("Matrícula não encontrada no banco de dados.");
+                        throw new Exception("Matrícula não encontrada para cancelamento.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao cancelar matrícula: {ex.Message}");
+                    throw;
+                }
             }
         }
     }

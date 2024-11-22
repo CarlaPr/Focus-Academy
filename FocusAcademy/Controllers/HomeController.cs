@@ -1,26 +1,23 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using FocusAcademy.Models;
+using FocusAcademy.Data;
 
 namespace FocusAcademy.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly UsuarioRepositorio _repositorio;
+
+    public HomeController(IConfiguration configuration)
+    {
+        _repositorio = new UsuarioRepositorio(configuration);
+    }
     public IActionResult Index()
     {
-        //pegar dados da model instanciando a homemodel
-        HomeModel home = new HomeModel();
-        return View(home);
+       return View();
     }
 
     public IActionResult Privacy()
     {
         return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

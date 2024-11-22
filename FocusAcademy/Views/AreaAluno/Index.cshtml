@@ -5,11 +5,67 @@
     ViewData["Title"] = "Área do Aluno";
 }
 
+<div class="area-aluno-container">
+    <h1 class="welcome-message">Bem-vindo!</h1>
+    
+        @if (TempData["SucessoCancelar"] != null || TempData["SucessoMatricular"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SucessoCancelar"]
+                @TempData["SucessoMatricular"]
+            </div>
+        }
+        @if (TempData["ErroCancelar"] != null || TempData["ErroMatricular"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErroCancelar"]
+                @TempData["ErroMatricular"]
+            </div>
+        }
+
+    @if (Model?.Matriculas != null && Model.Matriculas.Any())
+    {
+        <ul class="course-list">
+            @foreach (var matricula in Model.Matriculas)
+            {
+                <li>
+                    <span class="course-name">Cursos Matriculado: @(matricula?.Curso?.Nome ?? "Curso não disponível")</span>
+                </li>
+                <div class="action-links">
+                    <li>
+                        <a asp-controller="AreaAluno" asp-action="Grade">Visualizar Grade Horária</a>
+                    </li>
+                </div>
+                <div class="action-links">
+                    <li>
+                        <a asp-controller="AreaAluno" asp-action="Visualizar">Visualizar Dados Cadastrais</a>
+                    </li>
+                </div>
+            }
+        </ul>
+    }
+    else
+    {   
+        <ul class="course-list">
+            <p>Você ainda não está matriculado em nenhum curso.</p>
+            <ul>
+                <div class="action-links">
+                    <li>
+                        <a asp-controller="AreaAluno" asp-action="Matricular">Clique aqui e se Matricule-se já</a>
+                    </li>
+                </div>
+                <div class="action-links">
+                    <li>
+                        <a asp-controller="AreaAluno" asp-action="Visualizar">Visualizar Dados Cadastrais</a>
+                    </li>
+                </div>
+            </ul>
+        </ul>
+    }
+</div>
 <style>
     body {
         font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
         background-color: #f4f6f9;
     }
 
@@ -76,8 +132,8 @@
     }
 
     .course-list li a:hover {
-        text-decoration: underline;
-        color: #3498db;
+        color: #49052a;
+        text-decoration: none;
     }
 
     .course-list li .course-name {
@@ -92,13 +148,13 @@
     }
 
     .course-list li .action-links a {
-        color: #3498db;
         font-size: 1em;
         text-decoration: none;
+        color: #49052a;
     }
 
     .course-list li .action-links a:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     p {
@@ -115,7 +171,7 @@
     }
 
     a:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     h3 {
@@ -123,33 +179,3 @@
         margin-top: 20px;
     }
 </style>
-<div class="area-aluno-container">
-    <h1 class="welcome-message">Bem-vindo!</h1>
-
-    @if (Model?.Matriculas != null && Model.Matriculas.Any())
-    {
-        <ul class="course-list">
-            @foreach (var matricula in Model.Matriculas)
-            {
-                <li>
-                    <span class="course-name">Cursos Matriculado: @(matricula?.Curso?.Nome ?? "Curso não disponível")</span>
-                </li>
-                <li>
-                    <div class="action-links">
-                        <a asp-controller="AreaAluno" asp-action="Grade">Visualizar Grade Horária</a>
-                        <a asp-controller="AreaAluno" asp-action="Visualizar">Visualizar Dados Cadastrais</a>
-                    </div>
-                </li>
-            }
-        </ul>
-    }
-    else
-    {
-        <p>Você ainda não está matriculado em nenhum curso.</p>
-        <ul>
-            <li>
-                <a asp-controller="AreaAluno" asp-action="Matricular">Veja os Cursos Disponíveis e se Matricule já!</a>
-            </li>
-        </ul>
-    }
-</div>
